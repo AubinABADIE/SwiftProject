@@ -10,15 +10,12 @@ import UIKit
 
 class TripTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var tripName: UILabel!
+    @IBOutlet var tripImage: UIImageView!
+    
+    func setTripCell(_ tripName: String, _ tripImage: UIImage?) {
+        self.tripName.text = tripName
+        self.tripImage.image = tripImage
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

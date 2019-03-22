@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
 class TripTableViewModel {
 
-    var trips: [Trip] = []
+    var trips: [Trip] = [Trip(name: "Trip1", persons: PersonSet(persons: [Person(name: "Nom")]))]
     var tripSet: TripSet
     var delegate: TripTableViewModelDelegate?
     
@@ -35,7 +36,5 @@ class TripTableViewModel {
     func addTripToSet(trip: Trip){
         self.tripSet.add(trip: trip)
         self.trips.append(trip)
-        
     }
-
 }

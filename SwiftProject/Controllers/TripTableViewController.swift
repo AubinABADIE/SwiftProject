@@ -29,11 +29,12 @@ class TripTableViewController: NSObject, UITableViewDataSource, TripTableViewMod
             fatalError("The dequeued cell is not an instance of TripTableViewCell.")
             
         }
-        //cell.name.text = persons.getPersonAt(index: indexPath.row)?.fullname ?? "arg"
+        let trip: Trip = trips.getTripAt(index: indexPath.row)!
+        cell.setTripCell(trip.name, trip.img)
         return cell
     }
 
-    /*
+    /* 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
