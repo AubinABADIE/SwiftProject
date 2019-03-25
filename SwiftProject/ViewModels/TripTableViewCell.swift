@@ -13,9 +13,8 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var tripName: UILabel!
     @IBOutlet var tripImage: UIImageView!
     
-    func setTripCell(_ tripName: String, _ tripImage: UIImage?) {
+    func setTripCell(_ tripName: String) {
         self.tripName.text = tripName
-        self.tripImage.image = tripImage
     }
     
 }

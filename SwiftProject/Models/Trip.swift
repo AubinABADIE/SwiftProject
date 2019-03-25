@@ -7,26 +7,15 @@
 //
 
 import Foundation
-import UIKit
 
-class Trip {
+extension Trip {
     
-    var name: String
-    var persons: PersonSet
-    var img: UIImage?
+    public var tName: String { return self.name ?? "" }
+    //public var persons: [Person] { return self.persons ?? [] }
+    //var tImage: Binary { return self.image ?? nil }
     
-    init(name: String, persons: PersonSet) {
+    convenience init(name: String) {
+        self.init(context: CoreDataManager.context)
         self.name = name
-        self.persons = persons
-    }
-}
-
-extension Trip: Equatable{
-    static func == (lhs: Trip, rhs: Trip) -> Bool {
-        return lhs.name == rhs.name
-    }
-    
-    static func != (lhs: Trip, rhs: Trip) -> Bool {
-        return !(lhs == rhs)
     }
 }

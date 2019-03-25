@@ -30,7 +30,7 @@ class TripTableViewController: NSObject, UITableViewDataSource, TripTableViewMod
             
         }
         let trip: Trip = trips.getTripAt(index: indexPath.row)!
-        cell.setTripCell(trip.name, trip.img)
+        cell.setTripCell(trip.name!)
         return cell
     }
 

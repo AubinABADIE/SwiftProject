@@ -11,19 +11,12 @@ import Foundation
 
 class TripTableViewModel {
 
-    var trips: [Trip] = [Trip(name: "Trip1", persons: PersonSet(persons: [Person(name: "Nom")]))]
-    var tripSet: TripSet
+    var trips: [Trip] = [Trip(name: "Trip1")]
+    
     var delegate: TripTableViewModelDelegate?
     
     init(){
-        self.tripSet = TripSet()
-    }
-    
-    init(tripSet: TripSet){
-        self.tripSet = tripSet
-        for trip in self.tripSet {
-            trips.append(trip)
-        }
+
     }
     
     func getTripAt(index: Int) -> Trip?{
@@ -34,7 +27,5 @@ class TripTableViewModel {
     }
     
     func addTripToSet(trip: Trip){
-        self.tripSet.add(trip: trip)
-        self.trips.append(trip)
     }
 }
