@@ -10,11 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var tripTableViewController: TripTableViewController!
+    @IBOutlet weak var tripTableView: UITableView!
+    var tripTableViewController: TripTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.tripTableViewController.tripTableView.reloadData()
+        self.tripTableViewController = TripTableViewController(tripTableView: tripTableView)
     }
+    
+    @IBAction func unwindToMainView(sender: UIStoryboardSegue){}
 }

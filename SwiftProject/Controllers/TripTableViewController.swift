@@ -8,20 +8,23 @@
 
 import UIKit
 
-class TripTableViewController: NSObject, UITableViewDataSource, TripTableViewModelDelegate {
+class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tripTableView: UITableView!
+    var tripTableView: UITableView!
+    //var fetchedResultController: TripFetchResultController
+    var trips: [Trip]?
     
-    var trips: TripTableViewModel
-    
-    override init() {
-        self.trips = TripTableViewModel()
+    init(tripTableView: UITableView) {
+        //self.fetchedResultController = TripFetchResultController(view: tripTableView)
+        self.tripTableView = tripTableView
+        self.trips = TripDAO.fetchAll()
         super.init()
-        self.trips.delegate = self
+        self.tripTableView.dataSource = self
+        self.tripTableView.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trips.trips.count
+        return trips?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,8 +32,8 @@ class TripTableViewController: NSObject, UITableViewDataSource, TripTableViewMod
             fatalError("The dequeued cell is not an instance of TripTableViewCell.")
             
         }
-        let trip: Trip = trips.getTripAt(index: indexPath.row)!
-        cell.setTripCell(trip.name!)
+        let trip: Trip = (trips?[indexPath.row])!
+        cell.setTripCell(tripName: trip.name)
         return cell
     }
 

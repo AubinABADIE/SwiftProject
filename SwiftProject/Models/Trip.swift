@@ -10,12 +10,12 @@ import Foundation
 
 extension Trip {
     
-    public var tName: String { return self.name ?? "" }
+    public var name: String { return self.tname ?? "" }
     //public var persons: [Person] { return self.persons ?? [] }
     //var tImage: Binary { return self.image ?? nil }
     
     convenience init(name: String) {
         self.init(context: CoreDataManager.context)
-        self.name = name
+        self.tname = name
     }
 }

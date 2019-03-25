@@ -42,7 +42,7 @@ class TripDAO {
         }
     }
     
-    static func count(forNname name: String) -> Int{
+    static func count(forName name: String) -> Int{
         self.request.predicate = NSPredicate(format: "name == %@", name)
         do{
             return try CoreDataManager.context.count(for: self.request)
@@ -131,7 +131,7 @@ class TripDAO {
 //    }
     
     static func count(trip: Trip) -> Int{
-        self.request.predicate = NSPredicate(format: "name == %@", trip.name!)
+        self.request.predicate = NSPredicate(format: "name == %@", trip.name)
         do {
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -141,7 +141,7 @@ class TripDAO {
     }
     
     static func search(forPerson trip: Trip) -> Trip?{
-        self.request.predicate = NSPredicate(format: "name == %@", trip.name!)
+        self.request.predicate = NSPredicate(format: "name == %@", trip.name)
         do {
             let result = try CoreDataManager.context.fetch(request) as [Trip]
             guard result.count != 0 else { return nil }

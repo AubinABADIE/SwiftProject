@@ -8,29 +8,16 @@
 
 import Foundation
 
-class Person {
-    var name: String
-    var balance: Double
-    var arriveDate: Date
-    var departDate: Date?
+extension Person {
     
-    init(name: String){
-        self.name = name
-        self.balance = 0.0
-        self.arriveDate = NSDate() as Date
-        self.departDate = nil
-    }
-}
-
-extension Person: Equatable{
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return
-            lhs.name == rhs.name &&
-                rhs.balance == lhs.balance &&
-                rhs.arriveDate == lhs.arriveDate
-    }
+    var name: String { return self.pname ?? "" }
+    var entryDate: Date? { return self.pentryDate ?? nil }
+    var exitDate: Date? { return self.pexitDate ?? nil }
     
-    static func != (lhs: Person, rhs: Person) -> Bool {
-        return !(lhs == rhs)
+    convenience init(name: String){
+        self.init(context: CoreDataManager.context)
+        self.pname = name
+        self.pentryDate = NSDate() as Date
+        self.pexitDate = nil
     }
 }
