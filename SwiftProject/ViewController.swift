@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.tripTableViewController = TripTableViewController(tripTableView: tripTableView)
+        self.tripTableViewController = TripTableViewController(tripTableView: tripTableView, viewController: self)
         self.tripTableViewController.fetchedResultController = TripFetchResultController(view: tripTableView)
         
     }

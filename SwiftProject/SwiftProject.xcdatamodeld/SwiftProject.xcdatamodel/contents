@@ -4,15 +4,15 @@
         <attribute name="pentryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pexitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="newRelationship" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="persons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="trip" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="timage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="tname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="newRelationship" inverseEntity="Person" syncable="YES"/>
+        <relationship name="trip" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="persons" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
         <element name="Person" positionX="117.90234375" positionY="-32.09765625" width="128" height="103"/>
-        <element name="Trip" positionX="-95.20703125" positionY="-25.1953125" width="128" height="90"/>
+        <element name="Trip" positionX="-95.20703125" positionY="-25.1953125" width="128" height="88"/>
     </elements>
 </model>

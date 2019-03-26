@@ -12,9 +12,11 @@ class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDeleg
     
     var tripTableView: UITableView!
     var fetchedResultController: TripFetchResultController!
+    var viewController: UIViewController
     
-    init(tripTableView: UITableView) {
+    init(tripTableView: UITableView, viewController: UIViewController) {
         self.tripTableView = tripTableView
+        self.viewController = viewController
         super.init()
         self.tripTableView.dataSource = self
         self.tripTableView.delegate = self
@@ -35,4 +37,19 @@ class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDeleg
         cell.setTripCell(tripName: trip.name, tripImage: trip.image)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "Suppression d'un voyage", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
+                CoreDataManager.context.delete(self.fetchedResultController.tripsFetched.object(at: indexPath))
+            }))
+            alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
+            
+            viewController.present(alert, animated: true)
+        }
+    }
+
+    
 }

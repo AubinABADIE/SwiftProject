@@ -91,7 +91,7 @@
                     <navigationItem key="navigationItem" title="Voyages" id="mDI-DN-cPe">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hiO-pH-GPw">
                             <connections>
-                                <segue destination="ddM-zB-5FN" kind="presentation" id="ITA-ZT-nfv"/>
+                                <segue destination="ddM-zB-5FN" kind="presentation" identifier="" id="ITA-ZT-nfv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -163,19 +163,56 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="liZ-So-2a0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="liZ-So-2a0">
                                 <rect key="frame" x="0.0" y="385" width="375" height="282"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" id="rWc-LJ-5Fs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" id="rWc-LJ-5Fs" customClass="PersonTableViewCell" customModule="SwiftProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rWc-LJ-5Fs" id="zTu-Ox-o6N">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrZ-jz-CJH">
+                                                    <rect key="frame" x="30" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNd-5J-Ugc">
+                                                    <rect key="frame" x="124" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-cj-UEB">
+                                                    <rect key="frame" x="77" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NqL-cj-UEB" firstAttribute="centerY" secondItem="zTu-Ox-o6N" secondAttribute="centerY" id="78s-c7-Qbs"/>
+                                                <constraint firstItem="zNd-5J-Ugc" firstAttribute="leading" secondItem="NqL-cj-UEB" secondAttribute="trailing" constant="5" id="BG2-bN-tzP"/>
+                                                <constraint firstItem="TrZ-jz-CJH" firstAttribute="leading" secondItem="zTu-Ox-o6N" secondAttribute="leadingMargin" constant="15" id="FuL-Au-mM1"/>
+                                                <constraint firstItem="TrZ-jz-CJH" firstAttribute="centerY" secondItem="zTu-Ox-o6N" secondAttribute="centerY" id="LFj-35-Pqq"/>
+                                                <constraint firstItem="NqL-cj-UEB" firstAttribute="leading" secondItem="TrZ-jz-CJH" secondAttribute="trailing" constant="5" id="Q9X-Ht-kf7"/>
+                                                <constraint firstItem="zNd-5J-Ugc" firstAttribute="centerY" secondItem="zTu-Ox-o6N" secondAttribute="centerY" id="Qe8-8Z-3t8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="entryDate" destination="NqL-cj-UEB" id="QjK-Lt-anh"/>
+                                            <outlet property="exitDate" destination="zNd-5J-Ugc" id="TdC-KU-NlG"/>
+                                            <outlet property="personName" destination="TrZ-jz-CJH" id="0Dc-fK-Fu3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="g26-wz-283" id="44D-Jo-d2e"/>
+                                    <outlet property="delegate" destination="g26-wz-283" id="oht-3U-kUn"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-N5-Eez">
                                 <rect key="frame" x="309" y="347" width="50" height="30"/>
@@ -183,6 +220,9 @@
                                     <constraint firstAttribute="width" constant="50" id="Div-Vn-1xQ"/>
                                 </constraints>
                                 <state key="normal" title="Ajouter"/>
+                                <connections>
+                                    <action selector="addPerson:" destination="g26-wz-283" eventType="touchUpInside" id="CZP-ps-H83"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wQ-Fb-BfD">
                                 <rect key="frame" x="16" y="149" width="46" height="21"/>
@@ -253,6 +293,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ns9-vn-Pd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="g26-wz-283" customClass="PersonTableViewController" customModule="SwiftProject" customModuleProvider="target">
+                    <connections>
+                        <outlet property="addButton" destination="ydW-N5-Eez" id="DLg-mw-5Nu"/>
+                        <outlet property="personName" destination="L4X-ru-99J" id="625-cq-fox"/>
+                    </connections>
+                </customObject>
                 <exit id="Wnv-Tx-5uZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1288.8" y="-266.71664167916043"/>

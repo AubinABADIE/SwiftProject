@@ -12,19 +12,22 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     
     var trip: Trip?
     var image: UIImage?
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var tripName: UITextField!
     @IBOutlet weak var tripImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    let imagePicker = UIImagePickerController()
+    @IBOutlet weak var personTableView: UITableView!
+    var personTableViewController: PersonTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tripName.delegate = self
-        imagePicker.delegate = self
+        self.personTableViewController = PersonTableViewController(personTableView: personTableView)
+        self.tripName.delegate = self
+        self.imagePicker.delegate = self
         updateSaveButtonState()
     }
     
@@ -37,6 +40,9 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
                 self.trip = Trip(name: name, image: image)
             } else {
                 self.trip = Trip(name: name)
+            }
+            for p in self.personTableViewController.persons {
+                trip?.addToTrip(p)
             }
         } else {
             self.trip = nil
