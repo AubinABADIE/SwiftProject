@@ -29,8 +29,7 @@ class TripFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
     lazy var tripsFetched : NSFetchedResultsController<Trip> = {
         // prepare a request
         let request : NSFetchRequest<Trip> = Trip.fetchRequest()
-        request.sortDescriptors =
-            [NSSortDescriptor(key:#keyPath(Trip.tname),ascending:true)]
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Trip.tname),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController
@@ -45,8 +44,7 @@ class TripFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
         CoreDataManager.save()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at
-        indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             if let newIndexPath = newIndexPath{

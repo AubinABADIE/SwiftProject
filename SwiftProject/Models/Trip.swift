@@ -7,15 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 extension Trip {
     
     public var name: String { return self.tname ?? "" }
-    //public var persons: [Person] { return self.persons ?? [] }
-    //var tImage: Binary { return self.image ?? nil }
+    var image: UIImage { return UIImage(data: self.timage!) ?? UIImage(named: "DefaultImg")! }
     
     convenience init(name: String) {
         self.init(context: CoreDataManager.context)
         self.tname = name
+        self.timage = UIImage(named: "DefaultImg")?.jpegData(compressionQuality: 0.8)
+    }
+    
+    convenience init(name: String, image: UIImage) {
+        self.init(context: CoreDataManager.context)
+        self.tname = name
+        self.timage = image.jpegData(compressionQuality: 0.8)
     }
 }

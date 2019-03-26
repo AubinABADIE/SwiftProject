@@ -11,18 +11,20 @@ import UIKit
 class AddTripViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var trip: Trip?
-    var imagePicker = UIImagePickerController()
     var image: UIImage?
+    
     @IBOutlet weak var tripName: UITextField!
+    @IBOutlet weak var tripImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tripName.delegate = self
         imagePicker.delegate = self
-        
         updateSaveButtonState()
     }
     
@@ -30,8 +32,12 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "DoneAddTrip"{
-            let name = tripName.text!
-            self.trip = Trip(name: name)
+            let name: String = tripName.text!
+            if let image = tripImage.image {
+                self.trip = Trip(name: name, image: image)
+            } else {
+                self.trip = Trip(name: name)
+            }
         } else {
             self.trip = nil
         }
@@ -61,5 +67,19 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         updateSaveButtonState()
         navigationItem.title = textField.text
+    }
+    
+    @IBAction func pickImage(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage?
+        self.tripImage.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

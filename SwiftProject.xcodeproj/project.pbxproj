@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0053797F2245472F0040B27E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053797E2245472F0040B27E /* CoreDataManager.swift */; };
-		005379822245477B0040B27E /* TripDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005379812245477B0040B27E /* TripDAO.swift */; };
 		266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */; };
 		266ACA542244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
 		266ACA552244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		0053797E2245472F0040B27E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		005379812245477B0040B27E /* TripDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDAO.swift; sourceTree = "<group>"; };
 		266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		26A230912244E1980049F318 /* SwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +95,6 @@
 		005379802245475F0040B27E /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				005379812245477B0040B27E /* TripDAO.swift */,
 				26FCABED2249466A00CBFEB1 /* TripFetchResultController.swift */,
 			);
 			path = DAO;
@@ -326,7 +323,6 @@
 				0053797F2245472F0040B27E /* CoreDataManager.swift in Sources */,
 				26A2309D2244E1990049F318 /* SwiftProject.xcdatamodeld in Sources */,
 				26A230952244E1980049F318 /* AppDelegate.swift in Sources */,
-				005379822245477B0040B27E /* TripDAO.swift in Sources */,
 				266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

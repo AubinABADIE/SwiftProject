@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tripTableViewController = TripTableViewController(tripTableView: tripTableView)
+        self.tripTableViewController.fetchedResultController = TripFetchResultController(view: tripTableView)
+        
     }
     
     @IBAction func unwindToMainView(sender: UIStoryboardSegue){}
