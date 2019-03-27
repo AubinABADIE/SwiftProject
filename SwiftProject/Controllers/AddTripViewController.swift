@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTripViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class AddTripViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var trip: Trip?
     var image: UIImage?
@@ -19,20 +19,22 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    var persons: [Person] = []
+    
     @IBOutlet weak var personTableView: UITableView!
-    var personTableViewController: PersonTableViewController!
+    @IBOutlet weak var personName: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.personTableViewController = PersonTableViewController(personTableView: personTableView)
         self.tripName.delegate = self
         self.imagePicker.delegate = self
         updateSaveButtonState()
+        self.personTableView.dataSource = self
+        self.personTableView.delegate = self
     }
     
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "DoneAddTrip"{
             let name: String = tripName.text!
@@ -41,7 +43,7 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
             } else {
                 self.trip = Trip(name: name)
             }
-            for p in self.personTableViewController.persons {
+            for p in self.persons {
                 trip?.addToTrip(p)
             }
         } else {
@@ -49,7 +51,6 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    //MARK: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text{
             if text != ""{
@@ -87,5 +88,34 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // *********** PERSON TABLEVIEW ******************
+    
+    @IBAction func addPerson(_ sender: Any) {
+        self.persons.append(Person(name: personName.text!))
+        self.personTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return persons.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = personTableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonTableViewCell else {
+            fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
+        }
+        let person = persons[indexPath.row]
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let entryDate = formatter.string(from: person.pentryDate!)
+        var exitDate = ""
+        if let exit = person.pexitDate {
+            exitDate = formatter.string(from: exit)
+        }
+        
+        cell.setPersonCell(name: person.pname!, entry: entryDate, exit: exitDate)
+        return cell
     }
 }

@@ -70,7 +70,7 @@
                                         <connections>
                                             <outlet property="tripImage" destination="Uef-Xs-agb" id="Wwl-no-a5P"/>
                                             <outlet property="tripName" destination="0Q8-0U-D6z" id="Sbd-mh-9Pi"/>
-                                            <segue destination="C3d-pO-9ea" kind="showDetail" id="PRa-8P-ahU"/>
+                                            <segue destination="C3d-pO-9ea" kind="show" id="UUy-10-z27"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -107,6 +107,8 @@
         <!--Add Trip View Controller-->
         <scene sceneID="PWK-uG-MaI">
             <objects>
+                <exit id="Wnv-Tx-5uZ" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns9-vn-Pd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ddM-zB-5FN" customClass="AddTripViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8fF-OX-JZ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -210,8 +212,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="g26-wz-283" id="44D-Jo-d2e"/>
-                                    <outlet property="delegate" destination="g26-wz-283" id="oht-3U-kUn"/>
+                                    <outlet property="dataSource" destination="ddM-zB-5FN" id="w55-dR-ecL"/>
+                                    <outlet property="delegate" destination="ddM-zB-5FN" id="OzJ-bX-YOM"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-N5-Eez">
@@ -221,7 +223,7 @@
                                 </constraints>
                                 <state key="normal" title="Ajouter"/>
                                 <connections>
-                                    <action selector="addPerson:" destination="g26-wz-283" eventType="touchUpInside" id="CZP-ps-H83"/>
+                                    <action selector="addPerson:" destination="ddM-zB-5FN" eventType="touchUpInside" id="arn-gg-Gxq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wQ-Fb-BfD">
@@ -286,20 +288,15 @@
                         <viewLayoutGuide key="safeArea" id="905-FL-a1e"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="ydW-N5-Eez" id="i1M-QN-OJI"/>
                         <outlet property="cancelButton" destination="vKf-x7-wz4" id="1U5-su-yiV"/>
+                        <outlet property="personName" destination="L4X-ru-99J" id="LSE-XZ-67Q"/>
+                        <outlet property="personTableView" destination="liZ-So-2a0" id="htn-Pb-tOC"/>
                         <outlet property="saveButton" destination="aaT-8G-xr1" id="8HW-5g-kmW"/>
                         <outlet property="tripImage" destination="WfT-bq-59n" id="a3z-xr-YqI"/>
                         <outlet property="tripName" destination="F7I-Pj-57b" id="JMM-vV-pq0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns9-vn-Pd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="g26-wz-283" customClass="PersonTableViewController" customModule="SwiftProject" customModuleProvider="target">
-                    <connections>
-                        <outlet property="addButton" destination="ydW-N5-Eez" id="DLg-mw-5Nu"/>
-                        <outlet property="personName" destination="L4X-ru-99J" id="625-cq-fox"/>
-                    </connections>
-                </customObject>
-                <exit id="Wnv-Tx-5uZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1288.8" y="-266.71664167916043"/>
         </scene>
@@ -312,7 +309,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUI-HI-eci">
-                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="kbq-Rh-0cx"/>
                                 </constraints>
@@ -344,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF7-6A-oWj">
-                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Upi-vT-fB0"/>
                                 </constraints>
@@ -353,7 +350,7 @@
                                 </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-gd-8Cl">
-                                <rect key="frame" x="0.0" y="118" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="162" width="375" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw">
@@ -397,7 +394,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJb-QC-fly">
-                                <rect key="frame" x="0.0" y="20" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
                                 <items>
                                     <navigationItem title="Nouvelle dépense" id="Qgt-TR-bjU">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FAD-wx-DKf"/>
@@ -429,7 +426,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xf3-Jm-YNq">
-                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="x1s-pj-v2U"/>
                                 </constraints>
@@ -510,25 +507,25 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IG-gt-zJm">
-                                <rect key="frame" x="147" y="20" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="147" y="20" width="52.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-X0-ShQ">
-                                <rect key="frame" x="147" y="51" width="42" height="21"/>
+                                <rect key="frame" x="147" y="51.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="q8k-tB-Fmg" firstAttribute="leading" secondItem="4TN-HP-olU" secondAttribute="leading" id="VYX-2R-e6d"/>
                             <constraint firstItem="0IG-gt-zJm" firstAttribute="top" secondItem="4TN-HP-olU" secondAttribute="topMargin" constant="20" id="bWZ-BO-l3w"/>
                             <constraint firstAttribute="bottom" secondItem="q8k-tB-Fmg" secondAttribute="bottom" id="bd4-Jk-UQd"/>
                             <constraint firstItem="0IG-gt-zJm" firstAttribute="leading" secondItem="C6D-X0-ShQ" secondAttribute="leading" id="cMD-we-Lva"/>
-                            <constraint firstItem="C6D-X0-ShQ" firstAttribute="top" secondItem="0IG-gt-zJm" secondAttribute="bottom" constant="10" id="taC-kJ-ftl"/>
+                            <constraint firstItem="C6D-X0-ShQ" firstAttribute="top" secondItem="0IG-gt-zJm" secondAttribute="bottom" constant="5" id="taC-kJ-ftl"/>
                             <constraint firstItem="0IG-gt-zJm" firstAttribute="leading" secondItem="q8k-tB-Fmg" secondAttribute="trailing" constant="20" id="vKQ-yh-Bzi"/>
                             <constraint firstItem="q8k-tB-Fmg" firstAttribute="top" secondItem="4TN-HP-olU" secondAttribute="top" id="vMs-1x-oDG"/>
                         </constraints>
@@ -537,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCZ-Z5-9na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="1117"/>
+            <point key="canvasLocation" x="1580" y="1116.3418290854574"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
