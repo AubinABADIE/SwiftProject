@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tripTableView: UITableView!
     var tripTableViewController: TripTableViewController!
+    var fetchedResultController: TripFetchResultController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,18 @@ class ViewController: UIViewController {
         self.tripTableViewController = TripTableViewController(tripTableView: tripTableView, viewController: self)
         self.tripTableViewController.fetchedResultController = TripFetchResultController(view: tripTableView)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "TripDetail"{
+            let barViewController = segue.destination as! UITabBarController
+            barViewController.viewControllers?.forEach {
+             if let vc = $0 as? TabViewController {
+                vc.trip = self.fetchedResultController.tripsFetched.object(at: self.tripTableView.indexPathForSelectedRow!)
+             }
+             }
+            
+        }
     }
     
     @IBAction func unwindToMainView(sender: UIStoryboardSegue){}
