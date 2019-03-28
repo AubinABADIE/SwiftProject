@@ -33,9 +33,7 @@ class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDeleg
         guard let cell = tripTableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as? TripTableViewCell else {
             fatalError("The dequeued cell is not an instance of TripTableViewCell.")
         }
-        let trip = self.fetchedResultController.tripsFetched.object(at: indexPath)
-        cell.setTripCell(tripName: trip.name, tripImage: trip.image)
-        return cell
+        return self.configure(cell: cell, atIndexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -50,6 +48,12 @@ class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDeleg
             viewController.present(alert, animated: true)
         }
     }
-
     
+    private func configure(cell: TripTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let trip = self.fetchedResultController.tripsFetched.object(at: indexPath)
+        cell.trip = trip
+        cell.tripImage.image = trip.image
+        cell.tripName.text = trip.name
+        return cell
+    }
 }

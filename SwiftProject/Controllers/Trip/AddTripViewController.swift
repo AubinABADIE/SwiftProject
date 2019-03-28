@@ -118,4 +118,10 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
         cell.setPersonCell(name: person.pname!, entry: entryDate, exit: exitDate)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+           // self.persons.remove(at: indexPath.row - 1)
+        }
+    }
 }

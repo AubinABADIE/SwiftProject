@@ -27,7 +27,8 @@ class ViewController: UIViewController {
             let barViewController = segue.destination as! UITabBarController
             barViewController.viewControllers?.forEach {
              if let vc = $0 as? TabViewController {
-                vc.trip = self.fetchedResultController.tripsFetched.object(at: self.tripTableView.indexPathForSelectedRow!)
+                let cell = sender as! TripTableViewCell
+                vc.trip = cell.trip
              }
              }
             

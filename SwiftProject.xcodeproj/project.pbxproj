@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0053797F2245472F0040B27E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053797E2245472F0040B27E /* CoreDataManager.swift */; };
-		00B5E938224BF00D004217D6 /* TripTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E937224BF00D004217D6 /* TripTabBarViewController.swift */; };
 		00B5E93A224BF408004217D6 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E939224BF408004217D6 /* BalanceViewController.swift */; };
 		00B5E93C224BF424004217D6 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E93B224BF424004217D6 /* ExpenseViewController.swift */; };
 		00B5E93E224BF431004217D6 /* TransfertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E93D224BF431004217D6 /* TransfertViewController.swift */; };
@@ -16,8 +15,6 @@
 		2652933F224A686900599698 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652933E224A686900599698 /* PersonTableViewCell.swift */; };
 		266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */; };
 		266ACA542244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
-		266ACA552244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
-		266ACA562244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
 		26A230952244E1980049F318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A230942244E1980049F318 /* AppDelegate.swift */; };
 		26A230972244E1990049F318 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A230962244E1990049F318 /* ViewController.swift */; };
 		26A2309A2244E1990049F318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A230982244E1990049F318 /* Main.storyboard */; };
@@ -51,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		0053797E2245472F0040B27E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		00B5E937224BF00D004217D6 /* TripTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTabBarViewController.swift; sourceTree = "<group>"; };
 		00B5E939224BF408004217D6 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		00B5E93B224BF424004217D6 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		00B5E93D224BF431004217D6 /* TransfertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfertViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +113,6 @@
 			children = (
 				266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */,
 				75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */,
-				00B5E937224BF00D004217D6 /* TripTabBarViewController.swift */,
 				00B5E943224BFD43004217D6 /* TabViewController.swift */,
 			);
 			path = Trip;
@@ -367,7 +362,6 @@
 				26A230CD2244E39C0049F318 /* Person.swift in Sources */,
 				2652933F224A686900599698 /* PersonTableViewCell.swift in Sources */,
 				26A230C92244E2F80049F318 /* Trip.swift in Sources */,
-				00B5E938224BF00D004217D6 /* TripTabBarViewController.swift in Sources */,
 				26FCABEE2249466A00CBFEB1 /* TripFetchResultController.swift in Sources */,
 				26A230972244E1990049F318 /* ViewController.swift in Sources */,
 				266ACA542244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */,
@@ -387,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				266ACA552244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */,
 				26A230AD2244E19B0049F318 /* SwiftProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,7 +389,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				266ACA562244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */,
 				26A230B82244E19B0049F318 /* SwiftProjectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
