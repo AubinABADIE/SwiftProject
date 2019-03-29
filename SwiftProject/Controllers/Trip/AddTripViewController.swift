@@ -30,7 +30,8 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
         // Do any additional setup after loading the view.
         self.tripName.delegate = self
         self.imagePicker.delegate = self
-        updateSaveButtonState()
+        self.personName.delegate = self
+        self.updateSaveButtonState()
         self.personTableView.dataSource = self
         self.personTableView.delegate = self
     }
@@ -68,11 +69,11 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
         let nameText = tripName.text ?? ""
-        saveButton.isEnabled = !nameText.isEmpty
+        saveButton.isEnabled = (!nameText.isEmpty && !(self.persons.count==0))
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        updateSaveButtonState()
+        self.updateSaveButtonState()
         navigationItem.title = textField.text
     }
     
@@ -94,7 +95,9 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func addPerson(_ sender: Any) {
         self.persons.append(Person(name: personName.text!))
+        self.personName.text = ""
         self.personTableView.reloadData()
+        self.updateSaveButtonState()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,7 +124,8 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-           // self.persons.remove(at: indexPath.row - 1)
+            self.persons.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
 }
