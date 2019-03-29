@@ -13,13 +13,16 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     var expenseTableView: UITableView!
     var fetchedResultController: ExpenseFetchResultController!
     var viewController: UIViewController
+    var trip: Trip!
     
-    init(expenseTableView: UITableView, viewController: UIViewController) {
+    init(expenseTableView: UITableView, viewController: UIViewController, trip: Trip) {
         self.expenseTableView = expenseTableView
         self.viewController = viewController
+        self.trip = trip
         super.init()
         self.expenseTableView.dataSource = self
         self.expenseTableView.delegate = self
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +56,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
         cell.expense = expense
-        cell.expenseTitle.text = expense.title
+        cell.expenseTitle.text = expense.titleexpense
         return cell
-    }
-    
+        }
 }

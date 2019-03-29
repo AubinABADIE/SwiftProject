@@ -9,9 +9,6 @@
 import UIKit
 
 class TabViewController: UITabBarController {
-
-    
-
     
     var trip: Trip?
     

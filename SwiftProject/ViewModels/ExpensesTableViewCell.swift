@@ -14,7 +14,4 @@ class ExpensesTableViewCell: UITableViewCell {
     @IBOutlet weak var expenseTitle: UILabel!
     var expense: Expense!
     
-    func setExpenseCell(expenseTitle: String) {
-        self.expenseTitle.text = expenseTitle
-        }
 }

@@ -11,6 +11,7 @@ import UIKit
 class TripTitleViewController: UIViewController {
     
     var trip: Trip?
+    
     @IBOutlet weak var tripImage: UIImageView!
     @IBOutlet weak var tripName: UILabel!
     @IBOutlet weak var tripPersons: UILabel!

@@ -10,7 +10,7 @@ import UIKit
 
 class ExpenseViewController: UIViewController {
     
-    var trip: Trip?
+    var trip: Trip!
     
     @IBOutlet weak var expenseTableView: UITableView!
     var expenseTableViewController: ExpenseTableViewController!
@@ -19,8 +19,8 @@ class ExpenseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
-        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView)
+        self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self, trip: trip )
+        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView, trip: trip )
         
     }
     
