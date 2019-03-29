@@ -9,30 +9,25 @@
 import UIKit
 
 class ExpenseViewController: UIViewController {
-
+    
+    var trip: Trip?
     
     @IBOutlet weak var expenseTableView: UITableView!
-    
-    var expensesTableViewController: ExpensesTableViewController!
+    var expenseTableViewController: ExpenseTableViewController!
     var fetchedResultController: ExpenseFetchResultController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.expensesTableViewController = ExpensesTableViewController(expenseTableView: expenseTableView, viewController: self)
-        self.expensesTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView)
+        self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
+        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView)
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "TitleBarInfo"{
+            let dest = segue.destination as! TripTitleViewController
+            dest.trip = self.trip
+        }
     }
-    */
-
 }

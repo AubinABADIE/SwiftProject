@@ -1,15 +1,14 @@
 //
-//  ExpensesTableViewController.swift
+//  ExpenseTableViewController.swift
 //  SwiftProject
 //
 //  Created by Nathan TRAINEAU on 29/03/2019.
 //  Copyright © 2019 Aubin ABADIE & Nathan TRAINEAU. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewDelegate {
+class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     var expenseTableView: UITableView!
     var fetchedResultController: ExpenseFetchResultController!
@@ -48,7 +47,7 @@ class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewD
             viewController.present(alert, animated: true)
         }
     }
-      //person!.expenses!.allObjects as [Expense]
+    //person!.expenses!.allObjects as [Expense]
     
     
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
@@ -57,4 +56,5 @@ class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewD
         cell.expenseTitle.text = expense.title
         return cell
     }
+    
 }

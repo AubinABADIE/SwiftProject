@@ -29,7 +29,7 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
     lazy var expensesFetched : NSFetchedResultsController<Expense> = {
         // prepare a request
         let request : NSFetchRequest<Expense> = Expense.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Trip.tname),ascending:true)]
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Expense.titleexpense),ascending:true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController
