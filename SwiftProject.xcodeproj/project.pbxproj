@@ -26,6 +26,10 @@
 		26A230C92244E2F80049F318 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A230C82244E2F80049F318 /* Trip.swift */; };
 		26A230CD2244E39C0049F318 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A230CC2244E39C0049F318 /* Person.swift */; };
 		26FCABEE2249466A00CBFEB1 /* TripFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCABED2249466A00CBFEB1 /* TripFetchResultController.swift */; };
+		753D462E224E245300287BC5 /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D462D224E245300287BC5 /* ExpensesTableViewCell.swift */; };
+		753D4630224E24E700287BC5 /* ExpensesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D462F224E24E700287BC5 /* ExpensesTableViewController.swift */; };
+		753D4632224E267F00287BC5 /* ExpenseFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */; };
+		753D4634224E28E300287BC5 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D4633224E28E300287BC5 /* Expense.swift */; };
 		75CCE1CB224530F700B6BD80 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +76,10 @@
 		26A230C82244E2F80049F318 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		26A230CC2244E39C0049F318 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		26FCABED2249466A00CBFEB1 /* TripFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFetchResultController.swift; sourceTree = "<group>"; };
+		753D462D224E245300287BC5 /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
+		753D462F224E24E700287BC5 /* ExpensesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewController.swift; sourceTree = "<group>"; };
+		753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFetchResultController.swift; sourceTree = "<group>"; };
+		753D4633224E28E300287BC5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				26FCABED2249466A00CBFEB1 /* TripFetchResultController.swift */,
+				753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -130,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				00B5E93B224BF424004217D6 /* ExpenseViewController.swift */,
+				753D462F224E24E700287BC5 /* ExpensesTableViewController.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -215,6 +225,7 @@
 			children = (
 				26A230CC2244E39C0049F318 /* Person.swift */,
 				26A230C82244E2F80049F318 /* Trip.swift */,
+				753D4633224E28E300287BC5 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			children = (
 				266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */,
 				2652933E224A686900599698 /* PersonTableViewCell.swift */,
+				753D462D224E245300287BC5 /* ExpensesTableViewCell.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,14 +377,18 @@
 				26FCABEE2249466A00CBFEB1 /* TripFetchResultController.swift in Sources */,
 				26A230972244E1990049F318 /* ViewController.swift in Sources */,
 				266ACA542244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */,
+				753D462E224E245300287BC5 /* ExpensesTableViewCell.swift in Sources */,
 				00B5E93C224BF424004217D6 /* ExpenseViewController.swift in Sources */,
 				00B5E944224BFD43004217D6 /* TabViewController.swift in Sources */,
 				00B5E93E224BF431004217D6 /* TransfertViewController.swift in Sources */,
 				75CCE1CB224530F700B6BD80 /* AddTripViewController.swift in Sources */,
 				0053797F2245472F0040B27E /* CoreDataManager.swift in Sources */,
+				753D4632224E267F00287BC5 /* ExpenseFetchResultController.swift in Sources */,
 				26A2309D2244E1990049F318 /* SwiftProject.xcdatamodeld in Sources */,
+				753D4630224E24E700287BC5 /* ExpensesTableViewController.swift in Sources */,
 				00B5E93A224BF408004217D6 /* BalanceViewController.swift in Sources */,
 				26A230952244E1980049F318 /* AppDelegate.swift in Sources */,
+				753D4634224E28E300287BC5 /* Expense.swift in Sources */,
 				266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
