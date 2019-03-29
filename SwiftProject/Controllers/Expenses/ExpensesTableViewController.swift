@@ -31,7 +31,7 @@ class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = expenseTableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as? TripTableViewCell else {
+        guard let cell = expenseTableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as? ExpensesTableViewCell else {
             fatalError("The dequeued cell is not an instance of TripTableViewCell.")
         }
         return self.configure(cell: cell, atIndexPath: indexPath)
@@ -39,7 +39,7 @@ class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let alert = UIAlertController(title: "Suppression d'un voyage", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Suppression d'une expense", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
             }))
@@ -48,11 +48,13 @@ class ExpensesTableViewController: NSObject, UITableViewDataSource, UITableViewD
             viewController.present(alert, animated: true)
         }
     }
+      //person!.expenses!.allObjects as [Expense]
+    
     
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
         cell.expense = expense
-        
+        cell.expenseTitle.text = expense.title
         return cell
     }
 }

@@ -44,4 +44,13 @@ extension Expense {
         self.amountexpense = amount
         self.dateexpense = date
     }
+    
+    convenience init(title: String, image: UIImage?, amount: Float, date: Date, transfer: Bool) {
+        self.init(context: CoreDataManager.context)
+        self.titleexpense = title
+        self.imageexpense = image?.jpegData(compressionQuality: 0.8)
+        self.amountexpense = amount
+        self.dateexpense = date
+        self.transferexpense = transfer
+    }
 }

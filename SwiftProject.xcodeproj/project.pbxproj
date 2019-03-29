@@ -226,9 +226,9 @@
 		26A230C62244E2B60049F318 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				753D4633224E28E300287BC5 /* Expense.swift */,
 				26A230CC2244E39C0049F318 /* Person.swift */,
 				26A230C82244E2F80049F318 /* Trip.swift */,
-				753D4633224E28E300287BC5 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

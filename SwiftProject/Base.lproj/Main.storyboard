@@ -306,7 +306,7 @@
         <!--Depenses-->
         <scene sceneID="6er-bN-0lN">
             <objects>
-                <viewController title="Depenses" id="Rod-as-Hpr" customClass="TabViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Depenses" id="Rod-as-Hpr" customClass="ExpenseViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f61-ml-6NR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -324,14 +324,24 @@
                                     <constraint firstAttribute="height" constant="456" id="G78-7U-1xF"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw" customClass="ExpensesTableViewCell" customModule="SwiftProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xVo-OU-oRw" id="aDJ-UY-4dI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Six-nb-Hwe">
+                                                    <rect key="frame" x="45" y="12" width="42" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="expenseTitle" destination="Six-nb-Hwe" id="qpo-fe-lGT"/>
                                             <segue destination="Asp-Kf-Ayo" kind="showDetail" trigger="accessoryAction" id="j7u-WW-qm2"/>
                                         </connections>
                                     </tableViewCell>
@@ -351,11 +361,14 @@
                         <viewLayoutGuide key="safeArea" id="gYz-xu-rYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dépenses" id="VVs-Eo-emO"/>
+                    <connections>
+                        <outlet property="expenseTableView" destination="Qfg-gd-8Cl" id="sMr-qe-zSz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxw-jW-09a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="6kl-WV-GD8"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="1676"/>
+            <point key="canvasLocation" x="1248.8" y="1675.4122938530736"/>
         </scene>
         <!--Balance-->
         <scene sceneID="Ldm-oB-v8W">
@@ -893,6 +906,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FYq-yJ-nwc"/>
+        <segue reference="1b5-fw-Iex"/>
     </inferredMetricsTieBreakers>
 </document>

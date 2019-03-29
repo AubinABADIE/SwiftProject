@@ -10,10 +10,18 @@ import UIKit
 
 class ExpenseViewController: UIViewController {
 
+    
+    @IBOutlet weak var expenseTableView: UITableView!
+    
+    var expensesTableViewController: ExpensesTableViewController!
+    var fetchedResultController: ExpenseFetchResultController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view, typically from a nib.
+        self.expensesTableViewController = ExpensesTableViewController(expenseTableView: expenseTableView, viewController: self)
+        self.expensesTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView)
+        
     }
     
 
