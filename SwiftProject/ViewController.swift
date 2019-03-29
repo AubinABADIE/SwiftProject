@@ -26,12 +26,11 @@ class ViewController: UIViewController {
         if segue.identifier == "TripDetail"{
             let barViewController = segue.destination as! UITabBarController
             barViewController.viewControllers?.forEach {
-             if let vc = $0 as? TabViewController {
-                let cell = sender as! TripTableViewCell
-                vc.trip = cell.trip
-             }
-             }
-            
+                if let vc = $0 as? TabViewController {
+                    let cell = sender as! TripTableViewCell
+                    vc.trip = cell.trip
+                }
+            }
         }
     }
     

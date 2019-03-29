@@ -314,7 +314,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF7-6A-oWj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <connections>
-                                    <segue destination="vcg-rw-ckE" kind="embed" id="1b5-fw-Iex"/>
+                                    <segue destination="vcg-rw-ckE" kind="embed" identifier="TitleBarInfo" id="1b5-fw-Iex"/>
                                 </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-gd-8Cl">
@@ -368,16 +368,16 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xf3-Jm-YNq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <connections>
-                                    <segue destination="vcg-rw-ckE" kind="embed" id="FYq-yJ-nwc"/>
+                                    <segue destination="vcg-rw-ckE" kind="embed" identifier="TitleBarInfo" id="FYq-yJ-nwc"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Xf3-Jm-YNq" secondAttribute="trailing" id="4IQ-LO-htb"/>
-                            <constraint firstItem="Xf3-Jm-YNq" firstAttribute="leading" secondItem="eEy-w1-Um5" secondAttribute="leading" id="8hT-TQ-45C"/>
-                            <constraint firstItem="Xf3-Jm-YNq" firstAttribute="top" secondItem="zgu-Up-x0h" secondAttribute="top" id="ySd-9c-x9L"/>
-                            <constraint firstItem="zgu-Up-x0h" firstAttribute="bottom" secondItem="Xf3-Jm-YNq" secondAttribute="bottom" constant="464" id="yWd-yR-wEC"/>
+                            <constraint firstItem="zgu-Up-x0h" firstAttribute="bottom" secondItem="Xf3-Jm-YNq" secondAttribute="bottom" constant="464" id="DAx-Gh-YXx"/>
+                            <constraint firstAttribute="trailing" secondItem="Xf3-Jm-YNq" secondAttribute="trailing" id="HOq-sk-6YW"/>
+                            <constraint firstItem="Xf3-Jm-YNq" firstAttribute="top" secondItem="zgu-Up-x0h" secondAttribute="top" id="a1k-3e-hEg"/>
+                            <constraint firstItem="Xf3-Jm-YNq" firstAttribute="leading" secondItem="eEy-w1-Um5" secondAttribute="leading" id="yt8-jB-8Qr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zgu-Up-x0h"/>
                     </view>
@@ -431,10 +431,10 @@
             </objects>
             <point key="canvasLocation" x="329" y="891"/>
         </scene>
-        <!--View Controller-->
+        <!--Trip Title View Controller-->
         <scene sceneID="EKS-NX-Xbu">
             <objects>
-                <viewController id="vcg-rw-ckE" sceneMemberID="viewController">
+                <viewController id="vcg-rw-ckE" customClass="TripTitleViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4TN-HP-olU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -470,6 +470,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y72-yb-bN3"/>
                     </view>
+                    <connections>
+                        <outlet property="tripImage" destination="q8k-tB-Fmg" id="ZMz-aD-oXq"/>
+                        <outlet property="tripName" destination="0IG-gt-zJm" id="dzN-U0-qrh"/>
+                        <outlet property="tripPersons" destination="C6D-X0-ShQ" id="iLd-vO-HfA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCZ-Z5-9na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -724,7 +729,7 @@
                                     <constraint firstAttribute="height" constant="90" id="xl2-Ix-FgT"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="vcg-rw-ckE" kind="embed" id="wui-UV-TVq"/>
+                                    <segue destination="vcg-rw-ckE" kind="embed" identifier="TitleBarInfo" id="wui-UV-TVq"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance actuelle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJQ-ri-PdH">
@@ -888,6 +893,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wui-UV-TVq"/>
+        <segue reference="FYq-yJ-nwc"/>
     </inferredMetricsTieBreakers>
 </document>
