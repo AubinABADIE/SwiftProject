@@ -24,13 +24,9 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "TripDetail"{
-            let barViewController = segue.destination as! UITabBarController
-            barViewController.viewControllers?.forEach {
-                if let vc = $0 as? TabViewController {
-                    let cell = sender as! TripTableViewCell
-                    vc.trip = cell.trip
-                }
-            }
+            let barViewController = segue.destination as! TabViewController
+            let cell = sender as! TripTableViewCell
+            barViewController.trip = cell.trip
         }
     }
     

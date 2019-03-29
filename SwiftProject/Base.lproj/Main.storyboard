@@ -306,7 +306,7 @@
         <!--Depenses-->
         <scene sceneID="6er-bN-0lN">
             <objects>
-                <viewController title="Depenses" id="Rod-as-Hpr" customClass="TabViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Depenses" id="Rod-as-Hpr" customClass="ExpenseViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f61-ml-6NR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,49 +318,80 @@
                                 </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-gd-8Cl">
-                                <rect key="frame" x="0.0" y="162" width="375" height="456"/>
+                                <rect key="frame" x="0.0" y="152" width="375" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="456" id="G78-7U-1xF"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw" customClass="ExpensesTableViewCell" customModule="SwiftProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xVo-OU-oRw" id="aDJ-UY-4dI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Six-nb-Hwe">
+                                                    <rect key="frame" x="45" y="12" width="42" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Six-nb-Hwe" firstAttribute="top" secondItem="aDJ-UY-4dI" secondAttribute="topMargin" constant="-8" id="MEU-px-0br"/>
+                                                <constraint firstItem="Six-nb-Hwe" firstAttribute="leading" secondItem="aDJ-UY-4dI" secondAttribute="leadingMargin" constant="29" id="WTP-av-IWK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Six-nb-Hwe" secondAttribute="bottom" constant="-11" id="nYh-23-PMZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Asp-Kf-Ayo" kind="showDetail" trigger="accessoryAction" id="j7u-WW-qm2"/>
+                                            <outlet property="expenseTitle" destination="Six-nb-Hwe" id="qpo-fe-lGT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SsW-G8-Wxw" id="ytK-We-hPK"/>
+                                    <outlet property="delegate" destination="Rod-as-Hpr" id="M5q-Ry-iMD"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ei-fi-27G">
+                                <rect key="frame" x="0.0" y="556" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Z7w-3W-g8M"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Asp-Kf-Ayo" kind="showDetail" id="Hal-4n-dVX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uF7-6A-oWj" firstAttribute="trailing" secondItem="Qfg-gd-8Cl" secondAttribute="trailing" id="2of-q4-ug4"/>
-                            <constraint firstItem="Qfg-gd-8Cl" firstAttribute="top" secondItem="uF7-6A-oWj" secondAttribute="bottom" constant="8" symbolic="YES" id="3sY-c9-zEv"/>
-                            <constraint firstAttribute="trailing" secondItem="uF7-6A-oWj" secondAttribute="trailing" id="Mhp-Bp-tTf"/>
-                            <constraint firstItem="uF7-6A-oWj" firstAttribute="leading" secondItem="f61-ml-6NR" secondAttribute="leading" id="Ou6-mH-0YJ"/>
-                            <constraint firstItem="Qfg-gd-8Cl" firstAttribute="bottom" secondItem="gYz-xu-rYb" secondAttribute="bottom" id="Qcb-Jw-be1"/>
-                            <constraint firstItem="uF7-6A-oWj" firstAttribute="top" secondItem="gYz-xu-rYb" secondAttribute="top" id="SrD-kA-Ae0"/>
-                            <constraint firstItem="uF7-6A-oWj" firstAttribute="leading" secondItem="Qfg-gd-8Cl" secondAttribute="leading" id="d5F-IN-VMW"/>
+                            <constraint firstAttribute="bottom" secondItem="uF7-6A-oWj" secondAttribute="bottom" constant="513" id="5Nb-Gp-M8S"/>
+                            <constraint firstItem="gYz-xu-rYb" firstAttribute="bottom" secondItem="3ei-fi-27G" secondAttribute="bottom" constant="18" id="9cH-yf-bZS"/>
+                            <constraint firstItem="Qfg-gd-8Cl" firstAttribute="top" secondItem="gYz-xu-rYb" secondAttribute="top" constant="88" id="A7x-2Z-Lbz"/>
+                            <constraint firstItem="uF7-6A-oWj" firstAttribute="top" secondItem="gYz-xu-rYb" secondAttribute="top" id="Kdq-sD-PWu"/>
+                            <constraint firstItem="uF7-6A-oWj" firstAttribute="trailing" secondItem="Qfg-gd-8Cl" secondAttribute="trailing" id="LUr-lC-p8U"/>
+                            <constraint firstItem="uF7-6A-oWj" firstAttribute="leading" secondItem="Qfg-gd-8Cl" secondAttribute="leading" id="QFd-rd-E7R"/>
+                            <constraint firstItem="3ei-fi-27G" firstAttribute="top" secondItem="Qfg-gd-8Cl" secondAttribute="bottom" constant="38" id="ZFr-4s-jSv"/>
+                            <constraint firstAttribute="trailing" secondItem="uF7-6A-oWj" secondAttribute="trailing" id="byr-DW-5Xm"/>
+                            <constraint firstItem="Qfg-gd-8Cl" firstAttribute="trailing" secondItem="3ei-fi-27G" secondAttribute="trailing" id="gPk-i1-gML"/>
+                            <constraint firstItem="uF7-6A-oWj" firstAttribute="leading" secondItem="f61-ml-6NR" secondAttribute="leading" id="k70-l0-7LY"/>
+                            <constraint firstItem="Qfg-gd-8Cl" firstAttribute="leading" secondItem="3ei-fi-27G" secondAttribute="leading" id="pzc-Ez-hGs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gYz-xu-rYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dépenses" id="VVs-Eo-emO"/>
+                    <connections>
+                        <outlet property="expenseTableView" destination="Qfg-gd-8Cl" id="Rh8-GF-dRM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxw-jW-09a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="6kl-WV-GD8"/>
+                <customObject id="SsW-G8-Wxw"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="1676"/>
+            <point key="canvasLocation" x="1248.8" y="1675.4122938530736"/>
         </scene>
         <!--Balance-->
         <scene sceneID="Ldm-oB-v8W">
             <objects>
-                <viewController title="Balance" id="dcu-ir-vo1" customClass="TabViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Balance" id="dcu-ir-vo1" customClass="BalanceViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eEy-w1-Um5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,7 +415,7 @@
                     <tabBarItem key="tabBarItem" title="Balance" id="5nA-Lp-TvK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJI-uq-qzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="lk9-fx-Ttd"/>
+                <customObject id="U4d-iE-pZS"/>
             </objects>
             <point key="canvasLocation" x="329" y="1676"/>
         </scene>
@@ -412,10 +443,10 @@
             </objects>
             <point key="canvasLocation" x="1249" y="891"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="4HC-KH-5Og">
             <objects>
-                <tabBarController id="C3d-pO-9ea" sceneMemberID="viewController">
+                <tabBarController id="C3d-pO-9ea" customClass="TabViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A6x-TW-xRk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -480,10 +511,10 @@
             </objects>
             <point key="canvasLocation" x="329" y="2189"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Expense View Controller-->
         <scene sceneID="INo-sv-i65">
             <objects>
-                <viewController id="Asp-Kf-Ayo" sceneMemberID="viewController">
+                <viewController id="Asp-Kf-Ayo" customClass="AddExpenseViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iqs-R6-vg1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -493,7 +524,12 @@
                                 <items>
                                     <navigationItem title="Nouvelle dépense" id="CmV-DL-dhB">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OmD-Y1-bwJ"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C3V-tI-Lpd"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C3V-tI-Lpd">
+                                            <connections>
+                                                <action selector="saveButton:" destination="Asp-Kf-Ayo" id="zzl-nn-1j4"/>
+                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToMainViewWithSender:" id="UcV-cC-ZWQ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -647,6 +683,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSe-zB-URz">
+                                                    <rect key="frame" x="306" y="7" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Add"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -664,8 +705,6 @@
                         <constraints>
                             <constraint firstItem="APN-DZ-aND" firstAttribute="leading" secondItem="tR5-wr-84S" secondAttribute="trailing" constant="27" id="1sZ-3A-Pz3"/>
                             <constraint firstItem="iSn-v2-mdn" firstAttribute="leading" secondItem="i4y-xr-4A6" secondAttribute="trailing" constant="34" id="30D-YO-eGx"/>
-                            <constraint firstItem="3j6-QX-JAv" firstAttribute="trailing" secondItem="agO-Mm-3Va" secondAttribute="trailing" id="49d-vd-I1W"/>
-                            <constraint firstItem="3j6-QX-JAv" firstAttribute="leading" secondItem="agO-Mm-3Va" secondAttribute="leading" id="6VC-mT-rDg"/>
                             <constraint firstItem="APN-DZ-aND" firstAttribute="leading" secondItem="tR5-wr-84S" secondAttribute="trailing" constant="27" id="89I-zM-GEE"/>
                             <constraint firstItem="iSn-v2-mdn" firstAttribute="leading" secondItem="i4y-xr-4A6" secondAttribute="trailing" constant="34" id="8TE-T5-xPM"/>
                             <constraint firstItem="iSK-TE-pRh" firstAttribute="top" secondItem="fCh-En-ZlU" secondAttribute="bottom" constant="28" id="8pI-Er-Qy1"/>
@@ -710,15 +749,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agO-Mm-3Va"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseAmount" destination="yNn-71-dvf" id="VP4-dE-Gm0"/>
+                        <outlet property="expenseDate" destination="j6K-4B-21X" id="59T-aB-e8h"/>
+                        <outlet property="expensePaidBy" destination="APN-DZ-aND" id="anX-XJ-U13"/>
+                        <outlet property="expenseTitle" destination="fCh-En-ZlU" id="FWh-Ti-7kD"/>
+                        <outlet property="saveButton" destination="C3V-tI-Lpd" id="R7l-NG-Rhi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8d-V4-mDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ln8-QD-9LO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2185" y="1675"/>
         </scene>
         <!--Transferts-->
         <scene sceneID="Mjv-ij-dbo">
             <objects>
-                <viewController title="Transferts" id="hvI-ps-6Zc" customClass="TabViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Transferts" id="hvI-ps-6Zc" customClass="TransfertViewController" customModule="SwiftProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHP-Bz-FiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -887,12 +934,12 @@
                     <tabBarItem key="tabBarItem" title="Transfert" id="5zV-fe-f2W"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXh-lj-tP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="YDy-x3-wTv"/>
+                <customObject id="XgR-OW-hQB"/>
             </objects>
             <point key="canvasLocation" x="-514" y="1675"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FYq-yJ-nwc"/>
+        <segue reference="1b5-fw-Iex"/>
     </inferredMetricsTieBreakers>
 </document>
