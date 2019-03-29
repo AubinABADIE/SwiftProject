@@ -11,7 +11,7 @@ import UIKit
 
 extension Trip {
     
-    public var name: String { return self.tname ?? "" }
+    var name: String { return self.tname ?? "" }
     var image: UIImage { return UIImage(data: self.timage!) ?? UIImage(named: "DefaultImg")! }
     
     convenience init(name: String) {

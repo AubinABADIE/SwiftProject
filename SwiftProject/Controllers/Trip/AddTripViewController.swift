@@ -44,7 +44,7 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
                 self.trip = Trip(name: name)
             }
             for p in self.persons {
-                trip?.addToTrip(p)
+                trip?.addToPersons(p)
             }
         } else {
             self.trip = nil
