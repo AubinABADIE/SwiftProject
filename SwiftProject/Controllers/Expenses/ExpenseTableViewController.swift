@@ -13,7 +13,6 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     var expenseTableView: UITableView!
     var fetchedResultController: ExpenseFetchResultController!
     var viewController: UIViewController
-    var trip: Trip?
     
     init(expenseTableView: UITableView, viewController: UIViewController) {
         self.expenseTableView = expenseTableView
@@ -55,12 +54,4 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
         cell.expenseTitle.text = expense.title
         return cell
     }
-    
-    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "AddExpense") {
-            let nextVC = segue.destination as! AddExpenseViewController
-            nextVC.trip = self.trip!
-        }
-    }
-    
 }

@@ -21,14 +21,19 @@ class ExpenseViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
         self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView, trip: self.trip!)
-        self.expenseTableViewController.trip = self.trip!
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TitleBarInfo"{
             let dest = segue.destination as! TripTitleViewController
             dest.trip = self.trip
+        }
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "AddExpense") {
+            let nextVC = segue.destination as! AddExpenseViewController
+            nextVC.trip = self.trip!
         }
     }
     
