@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
         <attribute name="amountexpense" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateexpense" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="imageexpense" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="titleexpense" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="transferexpense" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="expenses" inverseEntity="Trip" syncable="YES"/>
-        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="expenses" inverseEntity="Person" syncable="YES"/>
+        <relationship name="personsConcerned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="expensesOfPerson" inverseEntity="Person" syncable="YES"/>
+        <relationship name="tripConcerned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="expensesOfTrip" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="pentryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pexitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="persons" inverseEntity="Expense" syncable="YES"/>
-        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="persons" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="expensesOfPerson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="personsConcerned" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="tripConcerned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="personsOfTrip" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="timage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="tname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="expense" inverseEntity="Expense" syncable="YES"/>
-        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="trip" inverseEntity="Person" syncable="YES"/>
+        <relationship name="expensesOfTrip" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tripConcerned" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="personsOfTrip" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="tripConcerned" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
         <element name="Expense" positionX="9.59375" positionY="276.19140625" width="128" height="150"/>

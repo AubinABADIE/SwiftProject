@@ -14,7 +14,5 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet var tripImage: UIImageView!
     
     var trip: Trip!
-    
-  
  
 }

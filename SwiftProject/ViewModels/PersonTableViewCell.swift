@@ -14,9 +14,5 @@ class PersonTableViewCell: UITableViewCell {
     @IBOutlet weak var entryDate: UILabel!
     @IBOutlet weak var exitDate: UILabel!
     
-    func setPersonCell(name: String, entry: String, exit: String) {
-        self.personName.text = name
-        self.entryDate.text = entry
-        self.exitDate.text = exit
-    }
+    var person: Person!
 }

@@ -20,7 +20,8 @@ class ExpenseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
-        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView)
+        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView, trip: self.trip!)
+        self.expenseTableViewController.trip = self.trip!
         
     }
     
@@ -30,4 +31,6 @@ class ExpenseViewController: UIViewController {
             dest.trip = self.trip
         }
     }
+    
+    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){}
 }

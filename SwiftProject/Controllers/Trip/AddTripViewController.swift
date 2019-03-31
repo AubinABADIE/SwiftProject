@@ -45,7 +45,7 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
                 self.trip = Trip(name: name)
             }
             for p in self.persons {
-                trip?.addToPersons(p)
+                trip?.addToPersonsOfTrip(p)
             }
         } else {
             self.trip = nil
@@ -108,7 +108,21 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
         guard let cell = personTableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonTableViewCell else {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
-        let person = persons[indexPath.row]
+        
+        return configure(cell: cell, atIndexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.persons.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    private func configure(cell: PersonTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let person = self.persons[indexPath.row]
+        cell.person = person
+        cell.personName.text = person.pname
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -118,14 +132,8 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
             exitDate = formatter.string(from: exit)
         }
         
-        cell.setPersonCell(name: person.pname!, entry: entryDate, exit: exitDate)
+        cell.entryDate.text = entryDate
+        cell.exitDate.text = exitDate
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            self.persons.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        }
     }
 }

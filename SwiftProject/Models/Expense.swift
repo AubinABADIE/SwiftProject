@@ -11,11 +11,13 @@ import UIKit
 
 extension Expense {
     
-    public var title: String { return self.titleexpense ?? "" }
-    public var date: Date? { return self.dateexpense ?? nil }
-    public var transfer: Bool { return self.transferexpense ?? false }
-    public var amount: Float { return self.amountexpense ?? 0.0 }
-    public var image: UIImage { return UIImage(data: self.imageexpense!) ?? UIImage(named: "DefaultImg")! }
+    var title: String { return self.titleexpense ?? "" }
+    var date: Date? { return self.dateexpense ?? nil }
+    var transfer: Bool { return self.transferexpense ?? false }
+    var amount: Float { return self.amountexpense ?? 0.0 }
+    var image: UIImage { return UIImage(data: self.imageexpense!) ?? UIImage(named: "DefaultImg")! }
+    
+    var eTrip: Trip { return self.tripConcerned! as Trip }
     
     convenience init(title: String) {
         self.init(context: CoreDataManager.context)

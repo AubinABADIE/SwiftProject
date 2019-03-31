@@ -20,7 +20,7 @@ class TripTitleViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.tripImage.image = trip?.image
         self.tripName.text = trip?.name
-        let persons = trip!.persons!.allObjects as! [Person]
+        let persons = trip!.personsOfTrip!.allObjects as! [Person]
         var pStr: String = ""
         for p in persons {
             pStr += p.pname! + ", "

@@ -12,9 +12,11 @@ import CoreData
 class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
     
     let tableView  : UITableView
+    let trip: Trip
     
-    init(view : UITableView){
+    init(view : UITableView, trip: Trip){
         self.tableView  = view
+        self.trip = trip
         super.init()
         do{
             try self.expensesFetched.performFetch()
@@ -29,7 +31,10 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
     lazy var expensesFetched : NSFetchedResultsController<Expense> = {
         // prepare a request
         let request : NSFetchRequest<Expense> = Expense.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Expense.titleexpense),ascending:true)]
+        //request.predicate = NSPredicate(format: "trip contains[c] %@", self.trip)
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Expense.dateexpense),ascending:false)]
+        request.relationshipKeyPathsForPrefetching = ["trip"]
+        
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController

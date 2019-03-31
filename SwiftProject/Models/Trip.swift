@@ -14,6 +14,9 @@ extension Trip {
     var name: String { return self.tname ?? "" }
     var image: UIImage { return UIImage(data: self.timage!) ?? UIImage(named: "DefaultImg")! }
     
+    var lPersons: [Person] { return self.personsOfTrip!.allObjects as! [Person] }
+    var lExpenses: [Expense] { return self.expensesOfTrip!.allObjects as! [Expense] }
+    
     convenience init(name: String) {
         self.init(context: CoreDataManager.context)
         self.tname = name
@@ -25,4 +28,5 @@ extension Trip {
         self.tname = name
         self.timage = image.jpegData(compressionQuality: 0.8)
     }
+    
 }

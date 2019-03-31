@@ -321,7 +321,7 @@
                                 <rect key="frame" x="0.0" y="152" width="375" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xVo-OU-oRw" customClass="ExpensesTableViewCell" customModule="SwiftProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpenseCell" id="xVo-OU-oRw" customClass="ExpensesTableViewCell" customModule="SwiftProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xVo-OU-oRw" id="aDJ-UY-4dI">
@@ -348,7 +348,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="SsW-G8-Wxw" id="ytK-We-hPK"/>
-                                    <outlet property="delegate" destination="Rod-as-Hpr" id="M5q-Ry-iMD"/>
+                                    <outlet property="delegate" destination="SsW-G8-Wxw" id="S9R-12-ZEH"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ei-fi-27G">
@@ -523,11 +523,15 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Nouvelle dépense" id="CmV-DL-dhB">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OmD-Y1-bwJ"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OmD-Y1-bwJ">
+                                            <connections>
+                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="CancelAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="cqJ-6S-O69"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="C3V-tI-Lpd">
                                             <connections>
                                                 <action selector="saveButton:" destination="Asp-Kf-Ayo" id="zzl-nn-1j4"/>
-                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToMainViewWithSender:" id="UcV-cC-ZWQ"/>
+                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="UcV-cC-ZWQ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -940,6 +944,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wui-UV-TVq"/>
+        <segue reference="1b5-fw-Iex"/>
     </inferredMetricsTieBreakers>
 </document>

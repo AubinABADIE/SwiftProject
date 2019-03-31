@@ -13,6 +13,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     var expenseTableView: UITableView!
     var fetchedResultController: ExpenseFetchResultController!
     var viewController: UIViewController
+    var trip: Trip?
     
     init(expenseTableView: UITableView, viewController: UIViewController) {
         self.expenseTableView = expenseTableView
@@ -31,14 +32,14 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = expenseTableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as? ExpensesTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TripTableViewCell.")
+            fatalError("The dequeued cell is not an instance of ExpenseTableViewCell.")
         }
         return self.configure(cell: cell, atIndexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let alert = UIAlertController(title: "Suppression d'une expense", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Suppression d'une dépense", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
             }))
@@ -47,11 +48,10 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
             viewController.present(alert, animated: true)
         }
     }
-    //person!.expenses!.allObjects as [Expense]
-    
     
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
+        self.trip?.addToExpensesOfTrip(expense)
         cell.expense = expense
         cell.expenseTitle.text = expense.title
         return cell
