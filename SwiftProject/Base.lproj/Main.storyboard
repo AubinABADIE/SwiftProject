@@ -358,7 +358,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Asp-Kf-Ayo" kind="presentation" id="Hal-4n-dVX"/>
+                                    <segue destination="Asp-Kf-Ayo" kind="presentation" identifier="AddExpense" id="Hal-4n-dVX"/>
                                 </connections>
                             </button>
                         </subviews>

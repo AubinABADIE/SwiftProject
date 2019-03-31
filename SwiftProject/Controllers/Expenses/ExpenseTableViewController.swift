@@ -51,10 +51,16 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
-        self.trip?.addToExpensesOfTrip(expense)
         cell.expense = expense
         cell.expenseTitle.text = expense.title
         return cell
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "AddExpense") {
+            let nextVC = segue.destination as! AddExpenseViewController
+            nextVC.trip = self.trip!
+        }
     }
     
 }
