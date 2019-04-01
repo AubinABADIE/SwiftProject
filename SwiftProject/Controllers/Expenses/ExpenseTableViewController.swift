@@ -14,6 +14,8 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     var fetchedResultController: ExpenseFetchResultController!
     var viewController: UIViewController
     
+    var trip: Trip!
+    
     init(expenseTableView: UITableView, viewController: UIViewController) {
         self.expenseTableView = expenseTableView
         self.viewController = viewController

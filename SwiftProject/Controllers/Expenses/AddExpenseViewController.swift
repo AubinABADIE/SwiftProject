@@ -10,7 +10,7 @@ import UIKit
 
 class AddExpenseViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
-    var trip: Trip?
+    var trip: Trip!
     var expense: Expense?
     var image: UIImage?
     let imagePicker = UIImagePickerController()
@@ -39,7 +39,7 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         if segue.identifier == "DoneAddExpense"{
             let name: String = expenseTitle.text!
             self.expense = Expense(title: name)
-            self.expense?.tripConcerned = self.trip
+            self.expense!.tripConcerned = self.trip
         } else {
             self.expense = nil
         }

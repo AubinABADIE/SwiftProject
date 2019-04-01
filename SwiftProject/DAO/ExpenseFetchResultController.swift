@@ -31,9 +31,9 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
     lazy var expensesFetched : NSFetchedResultsController<Expense> = {
         // prepare a request
         let request : NSFetchRequest<Expense> = Expense.fetchRequest()
-        //request.predicate = NSPredicate(format: "trip contains[c] %@", self.trip)
+        request.predicate = NSPredicate(format: "tripConcerned == %@", self.trip)
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Expense.dateexpense),ascending:false)]
-        request.relationshipKeyPathsForPrefetching = ["trip"]
+        //request.relationshipKeyPathsForPrefetching = ["trip"]
         
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
