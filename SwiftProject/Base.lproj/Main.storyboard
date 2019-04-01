@@ -34,8 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qdF-Fm-ewy">
-                                <rect key="frame" x="1" y="65" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qdF-Fm-ewy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TripCell" rowHeight="100" id="Uga-Vl-Zrb" customClass="TripTableViewCell" customModule="SwiftProject" customModuleProvider="target">
@@ -528,12 +528,15 @@
                                                 <segue destination="Ln8-QD-9LO" kind="unwind" identifier="CancelAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="cqJ-6S-O69"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C3V-tI-Lpd">
-                                            <connections>
-                                                <action selector="saveButton:" destination="Asp-Kf-Ayo" id="zzl-nn-1j4"/>
-                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="UcV-cC-ZWQ"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Dépense" id="C3V-tI-Lpd">
+                                                <connections>
+                                                    <action selector="saveButton:" destination="Asp-Kf-Ayo" id="zzl-nn-1j4"/>
+                                                    <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="UcV-cC-ZWQ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Transfert" width="349" id="nk2-BR-t5A"/>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -670,7 +673,7 @@
                                 <state key="normal" title="Pick"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-wW-36s">
-                                <rect key="frame" x="0.0" y="531.5" width="375" height="135.5"/>
+                                <rect key="frame" x="0.0" y="531.5" width="375" height="91.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mxm-mG-7lv">
@@ -688,7 +691,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSe-zB-URz">
-                                                    <rect key="frame" x="306" y="7" width="30" height="30"/>
+                                                    <rect key="frame" x="307" y="7" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Add"/>
                                                 </button>
@@ -704,6 +707,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gve-Sb-a1f" customClass="CheckBox" customModule="SwiftProject" customModuleProvider="target">
+                                <rect key="frame" x="320" y="365" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5Gf-wI-8aF"/>
+                                    <constraint firstAttribute="width" constant="46" id="M2H-h6-byo"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -724,6 +735,7 @@
                             <constraint firstItem="Eqc-wW-36s" firstAttribute="leading" secondItem="agO-Mm-3Va" secondAttribute="leading" id="H6g-KC-LWv"/>
                             <constraint firstItem="ns6-kO-UJU" firstAttribute="trailing" secondItem="agO-Mm-3Va" secondAttribute="trailing" id="Hrm-8g-U9Q"/>
                             <constraint firstItem="ns6-kO-UJU" firstAttribute="top" secondItem="agO-Mm-3Va" secondAttribute="top" id="Ksx-fk-Fdv"/>
+                            <constraint firstItem="gve-Sb-a1f" firstAttribute="top" secondItem="j6K-4B-21X" secondAttribute="bottom" constant="64" id="Lli-PN-qzu"/>
                             <constraint firstItem="i4y-xr-4A6" firstAttribute="top" secondItem="APN-DZ-aND" secondAttribute="bottom" constant="27" id="M4a-RW-8JZ"/>
                             <constraint firstItem="3j6-QX-JAv" firstAttribute="leading" secondItem="agO-Mm-3Va" secondAttribute="leading" id="PxH-Cf-jGr"/>
                             <constraint firstItem="i4y-xr-4A6" firstAttribute="leading" secondItem="MyW-j8-Xa1" secondAttribute="trailing" constant="26" id="Q6Q-4n-wb4"/>
@@ -739,6 +751,7 @@
                             <constraint firstItem="2zf-MT-aGw" firstAttribute="top" secondItem="ns6-kO-UJU" secondAttribute="bottom" id="btZ-HO-FIc"/>
                             <constraint firstItem="Eqc-wW-36s" firstAttribute="top" secondItem="3j6-QX-JAv" secondAttribute="bottom" id="cjc-yt-69r"/>
                             <constraint firstItem="dXS-as-7Jp" firstAttribute="leading" secondItem="Iqs-R6-vg1" secondAttribute="leadingMargin" id="ea6-8r-XPo"/>
+                            <constraint firstItem="gve-Sb-a1f" firstAttribute="leading" secondItem="APN-DZ-aND" secondAttribute="trailing" constant="21" id="ebl-tn-Aam"/>
                             <constraint firstItem="iSn-v2-mdn" firstAttribute="top" secondItem="j6K-4B-21X" secondAttribute="bottom" constant="143" id="edA-Sf-Ra0"/>
                             <constraint firstItem="dXS-as-7Jp" firstAttribute="top" secondItem="qht-Pc-f03" secondAttribute="bottom" constant="36" id="fNr-5u-9OP"/>
                             <constraint firstItem="fCh-En-ZlU" firstAttribute="leading" secondItem="4aU-sQ-C1P" secondAttribute="trailing" constant="47" id="gym-pF-O07"/>
@@ -750,9 +763,12 @@
                             <constraint firstItem="j6K-4B-21X" firstAttribute="leading" secondItem="dXS-as-7Jp" secondAttribute="trailing" constant="15" id="tri-NX-b4K"/>
                             <constraint firstItem="3j6-QX-JAv" firstAttribute="centerX" secondItem="Iqs-R6-vg1" secondAttribute="centerX" id="u4e-VT-e2u"/>
                             <constraint firstItem="qht-Pc-f03" firstAttribute="top" secondItem="4aU-sQ-C1P" secondAttribute="bottom" constant="31.5" id="wgR-eH-TI7"/>
+                            <constraint firstItem="agO-Mm-3Va" firstAttribute="trailing" secondItem="gve-Sb-a1f" secondAttribute="trailing" constant="9" id="y5P-j4-ljM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agO-Mm-3Va"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="expenseAmount" destination="yNn-71-dvf" id="VP4-dE-Gm0"/>
                         <outlet property="expenseDate" destination="j6K-4B-21X" id="59T-aB-e8h"/>
@@ -764,7 +780,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8d-V4-mDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ln8-QD-9LO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2185" y="1675"/>
+            <point key="canvasLocation" x="2184.8000000000002" y="1674.5127436281859"/>
         </scene>
         <!--Balance-->
         <scene sceneID="Mjv-ij-dbo">
@@ -863,7 +879,7 @@
                                     <constraint firstAttribute="height" constant="244" id="h17-dv-GGz"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F3D-xa-Fl1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F3D-xa-Fl1" customClass="SoldeTableViewCell" customModule="SwiftProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F3D-xa-Fl1" id="2Db-sw-fGi">
@@ -908,6 +924,10 @@
                                                 <constraint firstItem="W5O-Po-Xto" firstAttribute="top" secondItem="2Db-sw-fGi" secondAttribute="top" constant="12" id="zUj-ba-n2B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="participantAmount" destination="RCa-Bn-n9b" id="61H-kz-h2A"/>
+                                            <outlet property="participantName" destination="Hk2-Se-b1h" id="Z95-eo-T6u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -936,6 +956,9 @@
                         <viewLayoutGuide key="safeArea" id="7zM-ax-XXq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Balance" id="5zV-fe-f2W"/>
+                    <connections>
+                        <outlet property="SoldeTableView" destination="nTB-t6-b9z" id="7bw-9P-liB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXh-lj-tP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="XgR-OW-hQB"/>
@@ -944,6 +967,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1b5-fw-Iex"/>
+        <segue reference="wui-UV-TVq"/>
     </inferredMetricsTieBreakers>
 </document>
