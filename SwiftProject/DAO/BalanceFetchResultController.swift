@@ -1,15 +1,15 @@
 //
-//  ExpenseFetchResultController.swift
+//  BalanceFetchResultController.swift
 //  SwiftProject
 //
-//  Created by Nathan TRAINEAU on 29/03/2019.
+//  Created by Nathan TRAINEAU on 01/04/2019.
 //  Copyright © 2019 Aubin ABADIE & Nathan TRAINEAU. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
+class BalanceFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
     
     let tableView  : UITableView
     let trip: Trip
@@ -25,7 +25,7 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
             fatalError(error.description)
         }
     }
-
+    
     
     //-------------------------------------------------------------------------------------------------
     // MARK: - FetchResultController
@@ -69,4 +69,3 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
         }
     }
 }
-
