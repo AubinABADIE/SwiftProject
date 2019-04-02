@@ -12,17 +12,17 @@ class BalanceViewController: UIViewController {
 
     var trip: Trip!
     
-    @IBOutlet weak var SoldeTableView: UITableView!
+    @IBOutlet weak var BalanceTableView: UITableView!
     
-    //var balanceTableViewController: BalanceTableViewController!
-    var fetchedResultController: ExpenseFetchResultController!
+    var balanceTableViewController: BalanceTableViewController!
+    var fetchedResultController: PersonFetchResultController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        /*self.balanceTableViewController = BalanceTableViewController(balanceTableView: SoldeTableView, viewController: self)
-        self.balanceTableViewController.fetchedResultController = ExpenseFetchResultController(view: SoldeTableView, trip: self.trip!)
-        self.balanceTableViewController.trip = self.trip*/
+        self.balanceTableViewController = BalanceTableViewController(balanceTableView: BalanceTableView, viewController: self)
+        self.balanceTableViewController.fetchedResultController = PersonFetchResultController(view: BalanceTableView, trip: self.trip)
+        self.balanceTableViewController.trip = self.trip
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
