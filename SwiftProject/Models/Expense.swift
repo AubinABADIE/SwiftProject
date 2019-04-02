@@ -19,31 +19,22 @@ extension Expense {
     
     var eTrip: Trip { return self.tripConcerned! as Trip }
     
-    convenience init(title: String) {
+    
+    convenience init(title: String, date: Date, amount: Float, isTransfer: Bool) {
         self.init(context: CoreDataManager.context)
         self.titleexpense = title
+        self.amountexpense = amount
+        self.dateexpense = NSDate() as Date
+        self.transferexpense = isTransfer
         self.imageexpense = UIImage(named: "DefaultImg")?.jpegData(compressionQuality: 0.8)
     }
     
-    convenience init(title: String, image: UIImage) {
-        self.init(context: CoreDataManager.context)
-        self.titleexpense = title
-        self.imageexpense = image.jpegData(compressionQuality: 0.8)
-    }
-    
-    convenience init(title: String, image: UIImage, amount: Float) {
-        self.init(context: CoreDataManager.context)
-        self.titleexpense = title
-        self.imageexpense = image.jpegData(compressionQuality: 0.8)
-        self.amountexpense = amount
-    }
-    
-    convenience init(title: String, image: UIImage?, amount: Float, isTransfer: Bool) {
+    convenience init(title: String, image: UIImage?, amount: Float, isTransfer: Bool, date: Date) {
         self.init(context: CoreDataManager.context)
         self.titleexpense = title
         self.imageexpense = image?.jpegData(compressionQuality: 0.8)
         self.amountexpense = amount
-        self.dateexpense = NSDate() as Date
+        self.dateexpense = date
         self.transferexpense = isTransfer
     }
 }

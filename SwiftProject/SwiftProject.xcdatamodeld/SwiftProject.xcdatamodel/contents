@@ -7,6 +7,7 @@
         <attribute name="titleexpense" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="transferexpense" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="personsConcerned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="expensesOfPerson" inverseEntity="Person" syncable="YES"/>
+        <relationship name="personWhoPaid" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="expensesPaid" inverseEntity="Person" syncable="YES"/>
         <relationship name="tripConcerned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="expensesOfTrip" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
@@ -14,6 +15,7 @@
         <attribute name="pexitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="expensesOfPerson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="personsConcerned" inverseEntity="Expense" syncable="YES"/>
+        <relationship name="expensesPaid" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="personWhoPaid" inverseEntity="Expense" syncable="YES"/>
         <relationship name="tripConcerned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="personsOfTrip" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
@@ -23,8 +25,8 @@
         <relationship name="personsOfTrip" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="tripConcerned" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="184.84765625" positionY="-231.61328125" width="128" height="150"/>
-        <element name="Person" positionX="31.04296875" positionY="-90.7109375" width="128" height="120"/>
+        <element name="Expense" positionX="184.84765625" positionY="-231.61328125" width="128" height="165"/>
+        <element name="Person" positionX="31.04296875" positionY="-90.7109375" width="128" height="135"/>
         <element name="Trip" positionX="366.703125" positionY="-73.41796875" width="128" height="105"/>
     </elements>
 </model>

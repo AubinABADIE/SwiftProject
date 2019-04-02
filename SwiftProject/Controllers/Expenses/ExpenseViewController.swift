@@ -11,10 +11,10 @@ import UIKit
 class ExpenseViewController: UIViewController {
     
     var trip: Trip!
-    
     @IBOutlet weak var expenseTableView: UITableView!
     var expenseTableViewController: ExpenseTableViewController!
     var fetchedResultController: ExpenseFetchResultController!
+    var personFetchedResultController: PersonFetchResultController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class ExpenseViewController: UIViewController {
         } else if (segue.identifier == "AddExpense") {
             let nextVC = segue.destination as! AddExpenseViewController
             nextVC.trip = self.trip
+            nextVC.persons = self.trip.personsOfTrip!.allObjects as! [Person]
+            
         }
     }
     

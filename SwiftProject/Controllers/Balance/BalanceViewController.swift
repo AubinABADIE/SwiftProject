@@ -12,6 +12,7 @@ class BalanceViewController: UIViewController {
 
     var trip: Trip!
     
+   
     @IBOutlet weak var BalanceTableView: UITableView!
     
     var balanceTableViewController: BalanceTableViewController!
