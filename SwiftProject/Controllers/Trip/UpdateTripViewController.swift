@@ -9,20 +9,17 @@
 import Foundation
 import UIKit
 
-// EN COURS DE TRAITEMENT //
-
 class UpdateTripViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var trip: Trip!
     var image: UIImage?
     let imagePicker = UIImagePickerController()
+    //var fetchedViewController: PersonFetchResultController
     
     @IBOutlet weak var tripName: UITextField!
     @IBOutlet weak var tripImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
-    var persons: [Person] = []
     
     @IBOutlet weak var personTableView: UITableView!
     @IBOutlet weak var personName: UITextField!
@@ -39,21 +36,15 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
         self.updateSaveButtonState()
         self.personTableView.dataSource = self
         self.personTableView.delegate = self
+        //self.fetchedViewController = PersonFetchResultController(view: personTableView, trip: trip)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "DoneUpdateTrip"{
-            let name: String = tripName.text!
+            self.trip.tname = tripName.text
             if let image = tripImage.image {
-                self.trip = Trip(name: name, image: image)
-            } else {
-                self.trip = Trip(name: name)
+                self.trip.timage = image.jpegData(compressionQuality: 0.8)
             }
-            for p in self.persons {
-                trip?.addToPersonsOfTrip(p)
-            }
-        } else {
-            self.trip = nil
         }
     }
     
@@ -68,13 +59,13 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        saveButton.isEnabled = false
+        saveButton.isEnabled = true
     }
     
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
         let nameText = tripName.text ?? ""
-        saveButton.isEnabled = (!nameText.isEmpty && !(self.persons.count==0))
+        saveButton.isEnabled = !nameText.isEmpty
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
@@ -99,14 +90,14 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
     // *********** PERSON TABLEVIEW ******************
     
     @IBAction func addPerson(_ sender: Any) {
-        self.persons.append(Person(name: personName.text!))
+        self.trip.addToPersonsOfTrip(Person(name: personName.text!))
         self.personName.text = ""
         self.personTableView.reloadData()
         self.updateSaveButtonState()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons.count
+        return self.trip.lPersons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,13 +110,19 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.persons.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            let alert = UIAlertController(title: "Suppression d'un participant", message: "Vous perdrez toutes les données la concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
+                CoreDataManager.context.delete(self.trip.lPersons[indexPath.row])
+            }))
+            alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     
     private func configure(cell: PersonTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let person = self.persons[indexPath.row]
+        let person = self.trip.lPersons[indexPath.row]
         cell.person = person
         cell.personName.text = person.pname
         

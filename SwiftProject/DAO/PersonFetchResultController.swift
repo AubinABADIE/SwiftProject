@@ -12,9 +12,11 @@ import CoreData
 class PersonFetchResultController: NSObject, NSFetchedResultsControllerDelegate {
     
     let tableView  : UITableView
+    let trip: Trip!
     
-    init(view : UITableView){
+    init(view : UITableView, trip: Trip){
         self.tableView  = view
+        self.trip = trip
         super.init()
         do{
             try self.personsFetched.performFetch()
@@ -29,7 +31,9 @@ class PersonFetchResultController: NSObject, NSFetchedResultsControllerDelegate 
     lazy var personsFetched : NSFetchedResultsController<Person> = {
         // prepare a request
         let request : NSFetchRequest<Person> = Person.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Person.pname),ascending:true)]
+        request.predicate = NSPredicate(format: "tripConcerned == %@", self.trip)
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Person.pentryDate),ascending:true)]
+        
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController

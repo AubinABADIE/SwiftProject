@@ -10,7 +10,7 @@ import UIKit
 
 class AddTripViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var trip: Trip?
+    var trip: Trip!
     var image: UIImage?
     let imagePicker = UIImagePickerController()
     

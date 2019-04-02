@@ -34,7 +34,6 @@ class ExpenseFetchResultController: NSObject, NSFetchedResultsControllerDelegate
         let request : NSFetchRequest<Expense> = Expense.fetchRequest()
         request.predicate = NSPredicate(format: "tripConcerned == %@", self.trip)
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(Expense.dateexpense),ascending:false)]
-        //request.relationshipKeyPathsForPrefetching = ["trip"]
         
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self

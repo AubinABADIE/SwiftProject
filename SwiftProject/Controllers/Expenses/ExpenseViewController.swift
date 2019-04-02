@@ -37,5 +37,7 @@ class ExpenseViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){}
+    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){
+        self.expenseTableView.reloadData()
+    }
 }

@@ -23,20 +23,5 @@ class TabViewController: UITabBarController {
                 vc.trip = self.trip
             }
         }
-
-        /*self.expenseViewController = ExpenseViewController(expenseTableView: self.expenseTableView, viewController: self)
-        self.expenseViewController.fetchedResultController = ExpenseFetchResultController(view: self.expenseTableView)*/
-        
     }
-
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TitleBarInfo"{
-            let dest = segue.destination as! TripTitleViewController
-            dest.trip = self.trip
-        }
-    }*/
-    
-  
-    
-    
 }

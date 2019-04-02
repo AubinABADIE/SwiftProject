@@ -33,7 +33,6 @@
 		753903D3225283BD003214A2 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753903D2225283BD003214A2 /* CheckBox.swift */; };
 		753903D522528CC4003214A2 /* BalanceSoldeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753903D422528CC4003214A2 /* BalanceSoldeTableViewController.swift */; };
 		753903D722529225003214A2 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753903D622529225003214A2 /* Balance.swift */; };
-		753903D92252932C003214A2 /* BalanceFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753903D82252932C003214A2 /* BalanceFetchResultController.swift */; };
 		753D462E224E245300287BC5 /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D462D224E245300287BC5 /* ExpensesTableViewCell.swift */; };
 		753D4632224E267F00287BC5 /* ExpenseFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */; };
 		753D4634224E28E300287BC5 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753D4633224E28E300287BC5 /* Expense.swift */; };
@@ -92,7 +91,6 @@
 		753903D2225283BD003214A2 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		753903D422528CC4003214A2 /* BalanceSoldeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSoldeTableViewController.swift; sourceTree = "<group>"; };
 		753903D622529225003214A2 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
-		753903D82252932C003214A2 /* BalanceFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceFetchResultController.swift; sourceTree = "<group>"; };
 		753D462D224E245300287BC5 /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
 		753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFetchResultController.swift; sourceTree = "<group>"; };
 		753D4633224E28E300287BC5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				26FCABED2249466A00CBFEB1 /* TripFetchResultController.swift */,
 				00B5E947224E29F4004217D6 /* PersonFetchResultController.swift */,
 				753D4631224E267F00287BC5 /* ExpenseFetchResultController.swift */,
-				753903D82252932C003214A2 /* BalanceFetchResultController.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -413,7 +410,6 @@
 				00B5E93E224BF431004217D6 /* TransfertViewController.swift in Sources */,
 				75CCE1CB224530F700B6BD80 /* AddTripViewController.swift in Sources */,
 				0053797F2245472F0040B27E /* CoreDataManager.swift in Sources */,
-				753903D92252932C003214A2 /* BalanceFetchResultController.swift in Sources */,
 				753D4636224E44D100287BC5 /* AddExpenseViewController.swift in Sources */,
 				753D4632224E267F00287BC5 /* ExpenseFetchResultController.swift in Sources */,
 				26A2309D2244E1990049F318 /* SwiftProject.xcdatamodeld in Sources */,
@@ -600,15 +596,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8J6A2M4FS;
 				INFOPLIST_FILE = SwiftProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AANT.SwiftProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -618,15 +617,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8J6A2M4FS;
 				INFOPLIST_FILE = SwiftProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AANT.SwiftProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

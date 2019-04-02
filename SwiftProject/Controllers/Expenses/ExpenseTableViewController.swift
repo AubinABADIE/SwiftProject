@@ -42,7 +42,8 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
         if editingStyle == .delete {
             let alert = UIAlertController(title: "Suppression d'une dépense", message: "Vous perdrez toutes les données la concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
+            alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
+                CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
             }))
             alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
             
