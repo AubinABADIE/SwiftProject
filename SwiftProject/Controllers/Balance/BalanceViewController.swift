@@ -10,7 +10,7 @@ import UIKit
 
 class BalanceViewController: UIViewController {
 
-    var trip: Trip?
+    var trip: Trip!
     
     @IBOutlet weak var SoldeTableView: UITableView!
     
@@ -29,15 +29,11 @@ class BalanceViewController: UIViewController {
         if segue.identifier == "TitleBarInfo"{
             let dest = segue.destination as! TripTitleViewController
             dest.trip = self.trip
-        }
-    }
-    
-    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "AddExpense") {
-            let nextVC = segue.destination as! AddExpenseViewController
+        } else if (segue.identifier == "UpdateTrip") {
+            let nextVC = segue.destination as! UpdateTripViewController
             nextVC.trip = self.trip
         }
     }
     
-    //@IBAction func unwindToBalanceView(sender: UIStoryboardSegue){}
+    @IBAction func unwindToBalanceView(sender: UIStoryboardSegue){}
 }

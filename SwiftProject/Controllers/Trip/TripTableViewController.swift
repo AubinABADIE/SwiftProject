@@ -54,6 +54,7 @@ class TripTableViewController: NSObject, UITableViewDataSource, UITableViewDeleg
         cell.trip = trip
         cell.tripImage.image = trip.image
         cell.tripName.text = trip.name
+        cell.tripAmount.text = String(trip.totalAmount) + "€"
         return cell
     }
 }

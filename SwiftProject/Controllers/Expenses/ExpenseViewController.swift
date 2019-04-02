@@ -28,6 +28,9 @@ class ExpenseViewController: UIViewController {
         if segue.identifier == "TitleBarInfo"{
             let dest = segue.destination as! TripTitleViewController
             dest.trip = self.trip
+        } else if (segue.identifier == "UpdateTrip") {
+            let nextVC = segue.destination as! UpdateTripViewController
+            nextVC.trip = self.trip
         } else if (segue.identifier == "AddExpense") {
             let nextVC = segue.destination as! AddExpenseViewController
             nextVC.trip = self.trip

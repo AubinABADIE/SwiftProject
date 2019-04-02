@@ -10,7 +10,7 @@ import UIKit
 
 class TripTitleViewController: UIViewController {
     
-    var trip: Trip?
+    var trip: Trip!
     @IBOutlet weak var tripImage: UIImageView!
     @IBOutlet weak var tripName: UILabel!
     @IBOutlet weak var tripPersons: UILabel!
@@ -18,9 +18,9 @@ class TripTitleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.tripImage.image = trip?.image
-        self.tripName.text = trip?.name
-        let persons = trip!.personsOfTrip!.allObjects as! [Person]
+        self.tripImage.image = trip.image
+        self.tripName.text = trip.name
+        let persons = trip.personsOfTrip!.allObjects as! [Person]
         var pStr: String = ""
         for p in persons {
             pStr += p.pname! + ", "

@@ -16,6 +16,16 @@ extension Trip {
     
     var lPersons: [Person] { return self.personsOfTrip!.allObjects as! [Person] }
     var lExpenses: [Expense] { return self.expensesOfTrip!.allObjects as! [Expense] }
+    var totalAmount: Float {
+        if !self.lExpenses.isEmpty {
+            var amt: Float = 0.0
+            for e in self.expensesOfTrip! {
+                amt += (e as! Expense).amount
+            }
+            return amt
+        }
+        return 0.0
+    }
     
     convenience init(name: String) {
         self.init(context: CoreDataManager.context)

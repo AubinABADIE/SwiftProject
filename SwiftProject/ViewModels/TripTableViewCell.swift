@@ -12,6 +12,7 @@ class TripTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tripName: UILabel!
     @IBOutlet var tripImage: UIImageView!
+    @IBOutlet weak var tripAmount: UILabel!
     
     var trip: Trip!
  

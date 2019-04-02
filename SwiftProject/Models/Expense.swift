@@ -13,8 +13,8 @@ extension Expense {
     
     var title: String { return self.titleexpense ?? "" }
     var date: Date? { return self.dateexpense ?? nil }
-    var transfer: Bool { return self.transferexpense ?? false }
-    var amount: Float { return self.amountexpense ?? 0.0 }
+    var isTransfer: Bool { return self.transferexpense }
+    var amount: Float { return self.amountexpense }
     var image: UIImage { return UIImage(data: self.imageexpense!) ?? UIImage(named: "DefaultImg")! }
     
     var eTrip: Trip { return self.tripConcerned! as Trip }
@@ -23,7 +23,6 @@ extension Expense {
         self.init(context: CoreDataManager.context)
         self.titleexpense = title
         self.imageexpense = UIImage(named: "DefaultImg")?.jpegData(compressionQuality: 0.8)
-        
     }
     
     convenience init(title: String, image: UIImage) {
@@ -39,20 +38,12 @@ extension Expense {
         self.amountexpense = amount
     }
     
-    convenience init(title: String, image: UIImage, amount: Float, date: Date) {
-        self.init(context: CoreDataManager.context)
-        self.titleexpense = title
-        self.imageexpense = image.jpegData(compressionQuality: 0.8)
-        self.amountexpense = amount
-        self.dateexpense = date
-    }
-    
-    convenience init(title: String, image: UIImage?, amount: Float, date: Date, transfer: Bool) {
+    convenience init(title: String, image: UIImage?, amount: Float, isTransfer: Bool) {
         self.init(context: CoreDataManager.context)
         self.titleexpense = title
         self.imageexpense = image?.jpegData(compressionQuality: 0.8)
         self.amountexpense = amount
-        self.dateexpense = date
-        self.transferexpense = transfer
+        self.dateexpense = NSDate() as Date
+        self.transferexpense = isTransfer
     }
 }

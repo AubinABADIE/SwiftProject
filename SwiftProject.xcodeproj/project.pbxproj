@@ -14,6 +14,7 @@
 		00B5E944224BFD43004217D6 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E943224BFD43004217D6 /* TabViewController.swift */; };
 		00B5E946224E2482004217D6 /* TripTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E945224E2482004217D6 /* TripTitleViewController.swift */; };
 		00B5E948224E29F4004217D6 /* PersonFetchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E947224E29F4004217D6 /* PersonFetchResultController.swift */; };
+		00B5E94A225353D8004217D6 /* UpdateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5E949225353D8004217D6 /* UpdateTripViewController.swift */; };
 		2652933F224A686900599698 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652933E224A686900599698 /* PersonTableViewCell.swift */; };
 		266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */; };
 		266ACA542244FE8A00C5AC49 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */; };
@@ -66,6 +67,7 @@
 		00B5E943224BFD43004217D6 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		00B5E945224E2482004217D6 /* TripTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTitleViewController.swift; sourceTree = "<group>"; };
 		00B5E947224E29F4004217D6 /* PersonFetchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFetchResultController.swift; sourceTree = "<group>"; };
+		00B5E949225353D8004217D6 /* UpdateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTripViewController.swift; sourceTree = "<group>"; };
 		2652933E224A686900599698 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		266ACA532244FE8A00C5AC49 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				266ACA4D2244FDA400C5AC49 /* TripTableViewController.swift */,
 				75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */,
+				00B5E949225353D8004217D6 /* UpdateTripViewController.swift */,
 				00B5E943224BFD43004217D6 /* TabViewController.swift */,
 				00B5E945224E2482004217D6 /* TripTitleViewController.swift */,
 			);
@@ -421,6 +424,7 @@
 				753903D12252773E003214A2 /* BalanceTableViewCell.swift in Sources */,
 				753903D522528CC4003214A2 /* BalanceSoldeTableViewController.swift in Sources */,
 				266ACA4E2244FDA400C5AC49 /* TripTableViewController.swift in Sources */,
+				00B5E94A225353D8004217D6 /* UpdateTripViewController.swift in Sources */,
 				00B5E948224E29F4004217D6 /* PersonFetchResultController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

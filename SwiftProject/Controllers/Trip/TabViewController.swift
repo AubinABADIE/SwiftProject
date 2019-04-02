@@ -19,13 +19,7 @@ class TabViewController: UITabBarController {
         self.viewControllers?.forEach {
             if let vc = $0 as? BalanceViewController {
                 vc.trip = self.trip
-            }
-            
-            if let vc = $0 as? ExpenseViewController {
-                vc.trip = self.trip
-            }
-            
-            if let vc = $0 as? TransfertViewController {
+            } else if let vc = $0 as? ExpenseViewController {
                 vc.trip = self.trip
             }
         }
