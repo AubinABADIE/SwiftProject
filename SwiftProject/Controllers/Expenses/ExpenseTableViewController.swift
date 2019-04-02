@@ -40,7 +40,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let alert = UIAlertController(title: "Suppression d'une dépense", message: "Vous perdrez toutes les données le concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Suppression d'une dépense", message: "Vous perdrez toutes les données la concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
             }))
