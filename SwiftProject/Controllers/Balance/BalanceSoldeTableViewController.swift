@@ -7,11 +7,9 @@
 //
 
 import Foundation
-
-
 import UIKit
 
-class BalanceTableViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
+/*class BalanceTableViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     var balanceTableView: UITableView!
     var fetchedResultController: ExpenseFetchResultController!
@@ -60,4 +58,4 @@ class BalanceTableViewController: NSObject, UITableViewDelegate, UITableViewData
         //cell.montant = solde.montant il faut pouvoir créer un solde avec le montant selon la personne en paramètre
         return cell
     }
-}
+}*/

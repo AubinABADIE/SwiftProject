@@ -11,11 +11,11 @@ import Foundation
 
 extension Balance {
     
-    var amount: Int { return self.amountBalance ?? 0 }
+    /*var amount: Int { return Int(self.amountBalance ?? 0) }
     
     
     convenience init(amount: Int){
         self.init(context: CoreDataManager.context)
         self.amount = amount
-    }
+    }*/
 }

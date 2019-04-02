@@ -14,15 +14,15 @@ class BalanceViewController: UIViewController {
     
     @IBOutlet weak var SoldeTableView: UITableView!
     
-    var balanceTableViewController: BalanceTableViewController!
+    //var balanceTableViewController: BalanceTableViewController!
     var fetchedResultController: ExpenseFetchResultController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.balanceTableViewController = BalanceTableViewController(balanceTableView: SoldeTableView, viewController: self)
+        /*self.balanceTableViewController = BalanceTableViewController(balanceTableView: SoldeTableView, viewController: self)
         self.balanceTableViewController.fetchedResultController = ExpenseFetchResultController(view: SoldeTableView, trip: self.trip!)
-        self.balanceTableViewController.trip = self.trip
+        self.balanceTableViewController.trip = self.trip*/
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +39,5 @@ class BalanceViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){}
-}
-
+    //@IBAction func unwindToBalanceView(sender: UIStoryboardSegue){}
 }
