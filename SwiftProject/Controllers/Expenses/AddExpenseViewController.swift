@@ -8,14 +8,15 @@
 
 import UIKit
 
-class AddExpenseViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class AddExpenseViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     var trip: Trip!
     var expense: Expense?
     var image: UIImage?
     let imagePicker = UIImagePickerController()
     var persons: [Person]!
-    var participantTableView: ParticipantsTableViewController?
+    
+    var personsParticipant: [Person] = []
    
     @IBOutlet weak var expenseParticipantTableView: UITableView!
     
@@ -32,8 +33,8 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         self.expenseTitle.delegate = self
         self.pickerPaidBy.delegate = self
         self.pickerPaidBy.dataSource = self
-        self.participantTableView = ParticipantsTableViewController(expenseParticipantTableView: expenseParticipantTableView, viewController: self)
-        self.participantTableView!.trip = self.trip!
+        self.expenseParticipantTableView.dataSource = self
+        self.expenseParticipantTableView.delegate = self
         updateSaveButtonState()
     }
     
@@ -60,9 +61,7 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
             } else {
                 self.expense = Expense(title: name, date: ddate, amount: amount, isTransfer: false)
             }
-            //Problèmeee lààà ?
-            //ici parcours le tableau des participants qui ont le switch coché
-            for pers in participantTableView!.personsParticipant {
+            for pers in self.personsParticipant {
                 self.expense!.addToPersonsConcerned(pers)
             }
             self.expense!.tripConcerned = self.trip
@@ -104,5 +103,38 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // *********** PARTICIPANT TABLEVIEW ******************
+    
+    @IBAction func switched(_ sender: Any) {
+        let cell = (sender as! UISwitch).superview?.superview
+            as! ExpenseParticipantTableViewCell
+        print(cell.person.name)
+        if personsParticipant.contains(cell.person) {
+            let index = personsParticipant.index(of: cell.person)!
+            personsParticipant.remove(at : index )
+        }
+        else {
+            personsParticipant.append(cell.person)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.trip.lPersons.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = expenseParticipantTableView.dequeueReusableCell(withIdentifier: "ParticipantCell", for: indexPath) as? ExpenseParticipantTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ExpenseParticipantTableViewCell.")
+        }
+        return self.configure(cell: cell, atIndexPath: indexPath)
+    }
+    
+    private func configure(cell: ExpenseParticipantTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let participants = self.trip.lPersons[indexPath.row]
+        cell.person = participants
+        cell.participantName.text = participants.name
+        return cell
     }
 }

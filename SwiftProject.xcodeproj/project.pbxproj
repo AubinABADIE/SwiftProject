@@ -38,7 +38,6 @@
 		75CCE1CB224530F700B6BD80 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */; };
 		D8DB98422253B1AB003BA49E /* BalanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB98412253B1AB003BA49E /* BalanceTableViewController.swift */; };
 		D8DB98442253FEF1003BA49E /* ExpenseParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB98432253FEF1003BA49E /* ExpenseParticipantTableViewCell.swift */; };
-		D8DB9846225406B3003BA49E /* ParticipantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB9845225406B3003BA49E /* ParticipantsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +95,6 @@
 		75CCE1CA224530F700B6BD80 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		D8DB98412253B1AB003BA49E /* BalanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewController.swift; sourceTree = "<group>"; };
 		D8DB98432253FEF1003BA49E /* ExpenseParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseParticipantTableViewCell.swift; sourceTree = "<group>"; };
-		D8DB9845225406B3003BA49E /* ParticipantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +159,6 @@
 				00B5E93B224BF424004217D6 /* ExpenseViewController.swift */,
 				753D463A224E6E2900287BC5 /* ExpenseTableViewController.swift */,
 				753D4635224E44D100287BC5 /* AddExpenseViewController.swift */,
-				D8DB9845225406B3003BA49E /* ParticipantsTableViewController.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8DB9846225406B3003BA49E /* ParticipantsTableViewController.swift in Sources */,
 				26A230CD2244E39C0049F318 /* Person.swift in Sources */,
 				2652933F224A686900599698 /* PersonTableViewCell.swift in Sources */,
 				D8DB98442253FEF1003BA49E /* ExpenseParticipantTableViewCell.swift in Sources */,

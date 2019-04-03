@@ -849,6 +849,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X3D-bY-9zF">
                                                     <rect key="frame" x="313" y="6" width="49" height="31"/>
+                                                    <connections>
+                                                        <action selector="switched:" destination="EfQ-SV-SDY" eventType="valueChanged" id="Gya-aW-IVj"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-3x-77l">
                                                     <rect key="frame" x="28" y="10" width="277" height="22"/>
@@ -1067,7 +1070,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ttw-8z-qmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="vOS-ag-DJg" customClass="ParticipantsTableViewController" customModule="SwiftProject" customModuleProvider="target"/>
                 <exit id="E6u-K9-hQc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2196" y="1675"/>
@@ -1293,7 +1295,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wui-UV-TVq"/>
-        <segue reference="3j2-cA-fHs"/>
+        <segue reference="1b5-fw-Iex"/>
+        <segue reference="6hx-N0-ZKc"/>
     </inferredMetricsTieBreakers>
 </document>
