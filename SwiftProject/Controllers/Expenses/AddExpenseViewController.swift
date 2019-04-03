@@ -80,10 +80,7 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
     }
     
     private func updateSaveButtonState() {
-        // Disable the Save button if the text field is empty.
-        let vexpenseTitle = expenseTitle.text ?? ""
-        let vexpenseAmount = expenseAmount.text ?? ""
-        saveButton.isEnabled = !vexpenseTitle.isEmpty && !vexpenseAmount.isEmpty
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
