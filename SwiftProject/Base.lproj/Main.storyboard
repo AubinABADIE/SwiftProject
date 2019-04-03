@@ -899,9 +899,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-sW-vqJ">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-sW-vqJ">
                                                     <rect key="frame" x="274" y="2" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="switched:" destination="hwh-e4-c03" eventType="valueChanged" id="hfe-m6-HFq"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f55-RA-lII">
                                                     <rect key="frame" x="28" y="11" width="42" height="21"/>
@@ -911,6 +913,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="o7o-sW-vqJ" secondAttribute="trailing" constant="54" id="RzK-Wc-SV5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="participantName" destination="f55-RA-lII" id="cGx-HU-eq4"/>
@@ -1006,6 +1011,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8d-V4-mDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="hwh-e4-c03" customClass="ParticipantsTableViewController" customModule="SwiftProject" customModuleProvider="target"/>
                 <exit id="Ln8-QD-9LO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2184.8000000000002" y="1674.5127436281859"/>

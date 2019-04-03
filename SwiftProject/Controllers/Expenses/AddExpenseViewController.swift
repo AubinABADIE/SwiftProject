@@ -71,6 +71,11 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
             } else {
                 self.expense = Expense(title: name, date: ddate, amount: amount, isTransfer: false)
             }
+            //Problèmeee lààà ?
+            //ici parcours le tableau des participants qui ont le switch coché
+            for pers in participantTableView!.personsParticpant {
+            self.expense!.addToPersonsConcerned(pers)
+            }
             self.expense!.tripConcerned = self.trip
             self.expense!.personWhoPaid = paidBy
         

@@ -56,7 +56,6 @@ class BalanceTableViewController: NSObject, UITableViewDelegate, UITableViewData
         let persons = self.fetchedResultController.personsFetched.object(at: indexPath)
         cell.participantName.text = persons.name
         cell.participantAmount.text = String(persons.balanceAmount)
-        //cell.montant = solde.montant il faut pouvoir créer un solde avec le montant selon la personne en paramètre
         return cell
     }
 }

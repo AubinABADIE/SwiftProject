@@ -22,6 +22,7 @@ class ExpenseViewController: UIViewController {
         self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
         self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView, trip: self.trip!)
         self.expenseTableViewController.trip = self.trip
+        expenseTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
