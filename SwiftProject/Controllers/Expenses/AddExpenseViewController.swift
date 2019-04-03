@@ -35,7 +35,6 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         self.participantTableView = ParticipantsTableViewController(expenseParticipantTableView: expenseParticipantTableView, viewController: self)
         self.participantTableView!.trip = self.trip!
         updateSaveButtonState()
-        self.participantTableView!.fetchedResultController = PersonFetchResultController(view: expenseParticipantTableView, trip: self.trip)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -63,8 +62,8 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
             }
             //Problèmeee lààà ?
             //ici parcours le tableau des participants qui ont le switch coché
-            for pers in participantTableView!.personsParticpant {
-            self.expense!.addToPersonsConcerned(pers)
+            for pers in participantTableView!.personsParticipant {
+                self.expense!.addToPersonsConcerned(pers)
             }
             self.expense!.tripConcerned = self.trip
             self.expense!.personWhoPaid = paidBy

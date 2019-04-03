@@ -11,7 +11,6 @@ import UIKit
 class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     var expenseTableView: UITableView!
-    var fetchedResultController: ExpenseFetchResultController!
     var viewController: UIViewController
     
     var trip: Trip!
@@ -25,10 +24,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = self.fetchedResultController.expensesFetched.sections?[section] else {
-            fatalError()
-        }
-        return section.numberOfObjects
+        return self.trip.lExpenses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +39,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
             let alert = UIAlertController(title: "Suppression d'une dépense", message: "Vous perdrez toutes les données la concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
-                CoreDataManager.context.delete(self.fetchedResultController.expensesFetched.object(at: indexPath))
+                CoreDataManager.context.delete(self.trip.lExpenses[indexPath.row])
             }))
             alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
             
@@ -52,7 +48,7 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
     }
     
     private func configure(cell: ExpensesTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
+        let expense = self.trip.lExpenses[indexPath.row]
         cell.expense = expense
         cell.expenseTitle.text = expense.title
         cell.expenseAmount.text = String(expense.amount) + "€"

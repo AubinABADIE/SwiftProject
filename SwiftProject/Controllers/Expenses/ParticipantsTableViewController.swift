@@ -15,9 +15,8 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
     
     var expenseParticipantTableView: UITableView!
     var trip: Trip!
-    var fetchedResultController: PersonFetchResultController!
     var viewController: UIViewController!
-    var personsParticpant: [Person] = []
+    var personsParticipant: [Person] = []
     
     override init() {
         super.init()
@@ -36,21 +35,18 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
         //quand un switch est bougé il récupère la cell correspondant et donc la personne afin de l'ajouter ou la retirer (si elle est deja dans la liste auquel cas l'user aura unchecked le swift)
         let cell = (sender as! UISwitch).superview?.superview
             as! ExpenseParticipantTableViewCell
-        let contains = personsParticpant.contains(cell.person)
+        let contains = personsParticipant.contains(cell.person)
         if( contains ){
-            let index = personsParticpant.index(of: cell.person)!
-            personsParticpant.remove(at : index )
+            let index = personsParticipant.index(of: cell.person)!
+            personsParticipant.remove(at : index )
         }
         else {
-            personsParticpant.append(cell.person)
+            personsParticipant.append(cell.person)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = self.fetchedResultController.personsFetched.sections?[section] else {
-            fatalError()
-        }
-        return section.numberOfObjects
+        return self.trip.lPersons.count
     }
 
     
@@ -62,7 +58,7 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
     }
 
     private func configure(cell: ExpenseParticipantTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let participants = self.fetchedResultController.personsFetched.object(at: indexPath)
+        let participants = self.trip.lPersons[indexPath.row]
         cell.person = participants
         cell.participantName.text = participants.name
         return cell

@@ -20,9 +20,8 @@ class ExpenseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.expenseTableViewController = ExpenseTableViewController(expenseTableView: expenseTableView, viewController: self)
-        self.expenseTableViewController.fetchedResultController = ExpenseFetchResultController(view: expenseTableView, trip: self.trip!)
         self.expenseTableViewController.trip = self.trip
-        expenseTableView.reloadData()
+        //expenseTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,12 +34,10 @@ class ExpenseViewController: UIViewController {
         } else if (segue.identifier == "AddExpense") {
             let nextVC = segue.destination as! AddExpenseViewController
             nextVC.trip = self.trip
-            nextVC.persons = self.trip.personsOfTrip!.allObjects as? [Person]
+            nextVC.persons = self.trip.lPersons
             
         }
     }
     
-    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){
-        self.expenseTableView.reloadData()
-    }
+    @IBAction func unwindToExpenseView(sender: UIStoryboardSegue){}
 }
