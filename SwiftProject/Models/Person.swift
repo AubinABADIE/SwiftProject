@@ -14,15 +14,18 @@ extension Person {
     var entryDate: Date? { return self.pentryDate ?? nil }
     var exitDate: Date? { return self.pexitDate ?? nil }
     var expenses: [Expense] { return self.expensesOfPerson?.allObjects as! [Expense]}
+    
     var expensePaid: [Expense] { return self.expensesPaid?.allObjects as! [Expense]}
     
     var balanceAmount: Float {
         var amt: Float = 0.0
         for e in self.expenses {
-            amt += e.amount
+            var persConcerned: [Person] { return e.ePersonConcerned}
+            let count = Float(persConcerned.count)
+            amt -= e.amount/count
         }
         for e in self.expensePaid {
-            amt -= e.amount
+            amt += e.amount
         }
         return amt
     }
