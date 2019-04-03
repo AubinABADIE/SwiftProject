@@ -835,15 +835,11 @@
                                                 <segue destination="Ln8-QD-9LO" kind="unwind" identifier="CancelAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="cqJ-6S-O69"/>
                                             </connections>
                                         </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem title="Dépense" id="C3V-tI-Lpd">
-                                                <connections>
-                                                    <action selector="saveButton:" destination="Asp-Kf-Ayo" id="zzl-nn-1j4"/>
-                                                    <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="h5s-PE-Ns9"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Transfert" width="349" id="nk2-BR-t5A"/>
-                                        </rightBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" title="Dépense" id="C3V-tI-Lpd">
+                                            <connections>
+                                                <segue destination="Ln8-QD-9LO" kind="unwind" identifier="DoneAddExpense" unwindAction="unwindToExpenseViewWithSender:" id="h5s-PE-Ns9"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -926,6 +922,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSn-v2-mdn">
                                 <rect key="frame" x="321" y="429" width="30" height="31"/>
                                 <state key="normal" title="Pick"/>
+                                <connections>
+                                    <action selector="pickImage:" destination="Asp-Kf-Ayo" eventType="touchUpInside" id="4j1-uw-DHQ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-wW-36s">
                                 <rect key="frame" x="0.0" y="541" width="375" height="82"/>
@@ -963,9 +962,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="participantName" destination="f55-RA-lII" id="cGx-HU-eq4"/>
+                                            <outlet property="participantSwitch" destination="o7o-sW-vqJ" id="J3a-ke-w4G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hwh-e4-c03" id="GZ5-97-5IE"/>
+                                    <outlet property="delegate" destination="hwh-e4-c03" id="v69-au-lfg"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Personnes concernées" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j6-QX-JAv">
                                 <rect key="frame" x="0.0" y="511" width="375" height="30"/>
@@ -1219,6 +1223,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XgR-OW-hQB" id="apy-SY-y7L"/>
+                                    <outlet property="delegate" destination="XgR-OW-hQB" id="4Ri-CZ-7kp"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Balance actuelle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-nV-a81">
                                 <rect key="frame" x="0.0" y="162" width="375" height="30"/>
@@ -1280,7 +1288,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1b5-fw-Iex"/>
-        <segue reference="6hx-N0-ZKc"/>
+        <segue reference="wui-UV-TVq"/>
+        <segue reference="3j2-cA-fHs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,10 +12,6 @@ import UIKit
 class BalanceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var participantName: UILabel!
-    
     @IBOutlet weak var participantAmount: UILabel!
-    
-    //var name: String
-    //var montant: String
     
 }

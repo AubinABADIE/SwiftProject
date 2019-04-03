@@ -11,10 +11,7 @@ import UIKit
 
 class ExpenseParticipantTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var participantSwitch: UISwitch!
-    
-   
     @IBOutlet weak var participantName: UILabel!
     
     var person: Person!

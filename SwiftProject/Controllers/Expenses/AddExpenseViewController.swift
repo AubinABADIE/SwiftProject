@@ -10,20 +10,6 @@ import UIKit
 
 class AddExpenseViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return persons.count
-    }
-    
-     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return persons[row].name
-    }
-    
-    
     var trip: Trip!
     var expense: Expense?
     var image: UIImage?
@@ -36,17 +22,9 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var expenseTitle: UITextField!
     @IBOutlet weak var expenseAmount: UITextField!
     @IBOutlet weak var expenseDate: UIDatePicker!
-    
     @IBOutlet weak var pickerPaidBy: UIPickerView!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
     @IBOutlet weak var expenseImage: UIImageView!
-    
-    //@IBOutlet weak var expenseImage: UIImageView!
-    
-    //@IBOutlet weak var expenseParticipantsTableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +36,18 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         self.participantTableView!.trip = self.trip!
         updateSaveButtonState()
         self.participantTableView!.fetchedResultController = PersonFetchResultController(view: expenseParticipantTableView, trip: self.trip)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return persons.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return persons[row].name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -78,10 +68,8 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
             }
             self.expense!.tripConcerned = self.trip
             self.expense!.personWhoPaid = paidBy
-        
+        }
     }
-    }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text{
@@ -93,6 +81,17 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         return false
     }
     
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let vexpenseTitle = expenseTitle.text ?? ""
+        let vexpenseAmount = expenseAmount.text ?? ""
+        saveButton.isEnabled = !vexpenseTitle.isEmpty && !vexpenseAmount.isEmpty
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+    }
     
     @IBAction func pickImage(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
@@ -107,20 +106,4 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    private func updateSaveButtonState() {
-        // Disable the Save button if the text field is empty.
-        let vexpenseTitle = expenseTitle.text ?? ""
-        let vexpenseAmount = expenseAmount.text ?? ""
-        saveButton.isEnabled = !vexpenseTitle.isEmpty && !vexpenseAmount.isEmpty
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        updateSaveButtonState()
-        navigationItem.title = textField.text
-    }
-    
-    
 }

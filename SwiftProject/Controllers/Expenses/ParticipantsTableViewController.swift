@@ -40,7 +40,6 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
         if( contains ){
             let index = personsParticpant.index(of: cell.person)!
             personsParticpant.remove(at : index )
-            
         }
         else {
             personsParticpant.append(cell.person)
@@ -64,7 +63,6 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
 
     private func configure(cell: ExpenseParticipantTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let participants = self.fetchedResultController.personsFetched.object(at: indexPath)
-        //bidouillage je met la valeur dans un current participant pour pouvoir le
         cell.person = participants
         cell.participantName.text = participants.name
         return cell
