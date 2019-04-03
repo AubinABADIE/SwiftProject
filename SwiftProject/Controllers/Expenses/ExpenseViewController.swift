@@ -35,7 +35,7 @@ class ExpenseViewController: UIViewController {
         } else if (segue.identifier == "AddExpense") {
             let nextVC = segue.destination as! AddExpenseViewController
             nextVC.trip = self.trip
-            nextVC.persons = self.trip.personsOfTrip!.allObjects as! [Person]
+            nextVC.persons = self.trip.personsOfTrip!.allObjects as? [Person]
             
         }
     }

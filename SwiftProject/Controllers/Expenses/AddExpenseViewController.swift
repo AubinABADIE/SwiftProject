@@ -63,7 +63,7 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "DoneAddExpense"{
             let name: String = expenseTitle.text!
-            let amount: Float = Float(expenseAmount.text! ) as! Float
+            let amount: Float = Float(expenseAmount.text!) as! Float
             let ddate: Date = expenseDate.date
             let paidBy: Person = persons[pickerPaidBy.selectedRow(inComponent: 0)]
             if let image = expenseImage.image {

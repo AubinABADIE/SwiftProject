@@ -55,6 +55,12 @@ class ExpenseTableViewController: NSObject, UITableViewDelegate, UITableViewData
         let expense = self.fetchedResultController.expensesFetched.object(at: indexPath)
         cell.expense = expense
         cell.expenseTitle.text = expense.title
+        cell.expenseAmount.text = String(expense.amount) + "€"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let paymentDate = formatter.string(from: expense.dateexpense!)
+        cell.expenseDate.text = paymentDate
+        cell.expensePerson.text = expense.ePerson.name
         return cell
     }
 }

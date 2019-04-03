@@ -125,7 +125,7 @@ class AddTripViewController: UIViewController, UINavigationControllerDelegate, U
         cell.personName.text = person.pname
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         let entryDate = formatter.string(from: person.pentryDate!)
         var exitDate = ""
         if let exit = person.pexitDate {

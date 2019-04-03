@@ -14,7 +14,6 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
     var trip: Trip!
     var image: UIImage?
     let imagePicker = UIImagePickerController()
-    //var fetchedViewController: PersonFetchResultController
     
     @IBOutlet weak var tripName: UITextField!
     @IBOutlet weak var tripImage: UIImageView!
@@ -36,15 +35,12 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
         self.updateSaveButtonState()
         self.personTableView.dataSource = self
         self.personTableView.delegate = self
-        //self.fetchedViewController = PersonFetchResultController(view: personTableView, trip: trip)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "DoneUpdateTrip"{
-            self.trip.tname = tripName.text
-            if let image = tripImage.image {
-                self.trip.timage = image.jpegData(compressionQuality: 0.8)
-            }
+    @IBAction func updateTrip(_ sender: Any) {
+        self.trip.tname = tripName.text
+        if let image = tripImage.image {
+            self.trip.timage = image.jpegData(compressionQuality: 0.8)
         }
     }
     
@@ -93,7 +89,6 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
         self.trip.addToPersonsOfTrip(Person(name: personName.text!))
         self.personName.text = ""
         self.personTableView.reloadData()
-        self.updateSaveButtonState()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,7 +108,13 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
             let alert = UIAlertController(title: "Suppression d'un participant", message: "Vous perdrez toutes les données la concernant. Êtes-vous sûr de vouloir continuer ?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Oui", style: .default, handler: { action in
-                CoreDataManager.context.delete(self.trip.lPersons[indexPath.row])
+                let person = self.trip.lPersons[indexPath.row]
+                person.pexitDate = NSDate() as Date
+                self.personTableView.reloadData()
+                let cell = self.personTableView.cellForRow(at: indexPath) as! PersonTableViewCell
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                cell.isUserInteractionEnabled = false;
+                cell.backgroundColor = UIColor.orange;
             }))
             alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: nil))
             
@@ -132,6 +133,9 @@ class UpdateTripViewController: UIViewController, UINavigationControllerDelegate
         var exitDate = ""
         if let exit = person.pexitDate {
             exitDate = formatter.string(from: exit)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+            cell.isUserInteractionEnabled = false;
+            cell.backgroundColor = UIColor.orange;
         }
         
         cell.entryDate.text = entryDate

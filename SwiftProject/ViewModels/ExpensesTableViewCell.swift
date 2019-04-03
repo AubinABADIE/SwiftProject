@@ -11,6 +11,9 @@ import UIKit
 class ExpensesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var expenseTitle: UILabel!
+    @IBOutlet weak var expenseAmount: UILabel!
+    @IBOutlet weak var expenseDate: UILabel!
+    @IBOutlet weak var expensePerson: UILabel!
     
     var expense: Expense!
     

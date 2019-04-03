@@ -18,6 +18,8 @@ extension Expense {
     var image: UIImage { return UIImage(data: self.imageexpense!) ?? UIImage(named: "DefaultImg")! }
     
     var eTrip: Trip { return self.tripConcerned! as Trip }
+    var ePerson: Person { return self.personWhoPaid! as Person }
+    var ePersonConcerned : [Person] { return self.personsConcerned?.allObjects as! [Person] }
     
     
     convenience init(title: String, date: Date, amount: Float, isTransfer: Bool) {

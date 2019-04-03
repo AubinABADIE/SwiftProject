@@ -24,16 +24,16 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
     }
     
     init(expenseParticipantTableView: UITableView, viewController: UIViewController){
-    // Do any additional setup after loading the view.
-    self.viewController = viewController
-    self.expenseParticipantTableView = expenseParticipantTableView
-    super.init()
-    self.expenseParticipantTableView.dataSource = self
-    self.expenseParticipantTableView.delegate = self
-}
+        // Do any additional setup after loading the view.
+        self.viewController = viewController
+        self.expenseParticipantTableView = expenseParticipantTableView
+        super.init()
+        self.expenseParticipantTableView.dataSource = self
+        self.expenseParticipantTableView.delegate = self
+    }
     
     @IBAction func switched(_ sender: Any) {
-        //quand un switvh est bougé il récupère la cell correspondant et donc la personne afin de l'ajouter ou la retirer (si elle est deja dans la liste auquel cas l'user aura unchecked le swift)
+        //quand un switch est bougé il récupère la cell correspondant et donc la personne afin de l'ajouter ou la retirer (si elle est deja dans la liste auquel cas l'user aura unchecked le swift)
         let cell = (sender as! UISwitch).superview?.superview
             as! ExpenseParticipantTableViewCell
         let contains = personsParticpant.contains(cell.person)
@@ -47,26 +47,26 @@ class ParticipantsTableViewController: NSObject, UITableViewDataSource, UITableV
         }
     }
     
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let section = self.fetchedResultController.personsFetched.sections?[section] else {
-        fatalError()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = self.fetchedResultController.personsFetched.sections?[section] else {
+            fatalError()
+        }
+        return section.numberOfObjects
     }
-    return section.numberOfObjects
-}
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = expenseParticipantTableView.dequeueReusableCell(withIdentifier: "ParticipantCell", for: indexPath) as? ExpenseParticipantTableViewCell else {
-        fatalError("The dequeued cell is not an instance of ExpenseParticipantTableViewCell.")
+        guard let cell = expenseParticipantTableView.dequeueReusableCell(withIdentifier: "ParticipantCell", for: indexPath) as? ExpenseParticipantTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ExpenseParticipantTableViewCell.")
+        }
+        return self.configure(cell: cell, atIndexPath: indexPath)
     }
-    return self.configure(cell: cell, atIndexPath: indexPath)
-}
 
-private func configure(cell: ExpenseParticipantTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-    let participants = self.fetchedResultController.personsFetched.object(at: indexPath)
-    //bidouillage je met la valeur dans un current participant pour pouvoir le
-    cell.person = participants
-    cell.participantName.text = participants.name
-    return cell
-}
+    private func configure(cell: ExpenseParticipantTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let participants = self.fetchedResultController.personsFetched.object(at: indexPath)
+        //bidouillage je met la valeur dans un current participant pour pouvoir le
+        cell.person = participants
+        cell.participantName.text = participants.name
+        return cell
+    }
 }
