@@ -33,6 +33,7 @@ class AddExpenseViewController: UIViewController, UINavigationControllerDelegate
         self.expenseTitle.delegate = self
         self.pickerPaidBy.delegate = self
         self.pickerPaidBy.dataSource = self
+        self.imagePicker.delegate = self
         self.expenseParticipantTableView.dataSource = self
         self.expenseParticipantTableView.delegate = self
         updateSaveButtonState()
